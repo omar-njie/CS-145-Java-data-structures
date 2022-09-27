@@ -3,9 +3,10 @@ package com.omar.data_structures.assignments;
 import java.util.Random;
 
 /**
- * <h2><b>
- *     The Bird class is responsible for moving birds at random points inside the imaginary cube,
- *     and checking if two birds are touching each other or if they are at the same location.</b></h2>
+ * <h2><p>
+ * The Bird class is responsible for moving birds at random points inside the imaginary cube,
+ * and checking if two birds are touching each other or if they are at the same location.
+ * </p></h2>
  *
  * @author Omar
  * @version 9.26.22

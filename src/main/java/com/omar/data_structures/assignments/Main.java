@@ -3,10 +3,10 @@ package com.omar.data_structures.assignments;
 import java.util.Random;
 
 /**
- * <h2><b>
- *     The main class create Bird objects and print out the total number of rounds
- *     for the birds that gets to touch 4 times.
- * </b></h2>
+ * <h2><p>
+ * The main class create Bird objects and print out the total number of rounds
+ * for the birds that gets to touch 4 times.
+ * </p></h2>
  *
  * @author Omar
  * @version 9.26.22
