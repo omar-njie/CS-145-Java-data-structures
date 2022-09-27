@@ -3,8 +3,10 @@ package com.omar.data_structures.assignments;
 import java.util.Random;
 
 /**
- * <h2><b>This Bird class is responsible for moving birds at random points inside the imaginary cube,
- * and checking if two birds are touching each other or if they are at the same location.</b></h2>
+ * <h2><b>
+ *     The Bird class is responsible for moving birds at random points inside the imaginary cube,
+ *     and checking if two birds are touching each other or if they are at the same location.</b></h2>
+ *
  * @author Omar
  * @version 9.26.22
  */
@@ -13,7 +15,12 @@ public class Bird {
     private int x, y, z;
     private String name;
 
-    // Default constructor
+    /**
+     * This constructor sets x, y and z coordinates to 1 and name to unknown name
+     * if nothing is passed in the created object in the <b><u>Main Class</u></b>.
+     *
+     * @see Main
+     */
     public Bird() {
         x = 1;
         y = 1;
@@ -22,12 +29,20 @@ public class Bird {
     }
 
 
+    /**
+     * Create a random coordinate for the bird between -6 and 6.
+     *
+     * @param x    x coordinate
+     * @param y    y coordinate
+     * @param z    z coordinate
+     * @param name name of the bird
+     */
     public Bird(int x, int y, int z, String name) {
         Random rand = new Random();
         // imaginary cube location for x, y, z: [-6, 6]
-        this.x = rand.nextInt(12) - 6;
-        this.y = rand.nextInt(12) - 6;
-        this.z = rand.nextInt(12) - 6;
+        this.x = rand.nextInt(13) - 6;
+        this.y = rand.nextInt(13) - 6;
+        this.z = rand.nextInt(13) - 6;
         this.name = name;
 
         // check if the inputs are within the constraints
@@ -109,22 +124,13 @@ public class Bird {
         }
 
         // check if the bird is out of bounds
-        if (x < -6) {
-            x = 6;
-        } else if (x > 6) {
-            x = -6;
-        }
+        if (x < -6) x = 6;
+        else if (x > 6) x = -6;
 
-        if (y < -6) {
-            y = 6;
-        } else if (y > 6) {
-            y = -6;
-        }
+        if (y < -6) y = 6;
+        else if (y > 6) y = -6;
 
-        if (z < -6) {
-            z = 6;
-        } else if (z > 6) {
-            z = -6;
-        }
+        if (z < -6) z = 6;
+        else if (z > 6) z = -6;
     }
 }
