@@ -1,9 +1,9 @@
+package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 // Class CritterPanel displays a grid of critters
 
 import javax.swing.*;
 import java.awt.Point;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 
 public class CritterPanel extends JPanel {

@@ -1,3 +1,4 @@
+package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 // Class CritterFrame provides the user interface for a simple simulation
 // program.
 

@@ -1,3 +1,4 @@
+package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 // CS 145 Homework (Critters)
 // Version 3.0
 // Authors: Stuart Reges and Marty Stepp

@@ -1,3 +1,4 @@
+package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 // This is the superclass of all of the Critter classes.  Your class should
 // extend this class.  The class provides several kinds of constants:
 //

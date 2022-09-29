@@ -1,3 +1,4 @@
+package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 // This defines a simple class of critters that sit around waiting to be
 // taken over by other critters.
 

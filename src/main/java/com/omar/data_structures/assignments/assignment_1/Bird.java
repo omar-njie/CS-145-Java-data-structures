@@ -1,4 +1,4 @@
-package com.omar.data_structures.assignments;
+package com.omar.data_structures.assignments.assignment_1;
 
 import java.util.Random;
 
