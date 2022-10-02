@@ -9,24 +9,19 @@ import java.util.Random;
  */
 public class Bear extends Critter {
 
-    private boolean is_normal_bear;
+    private boolean is_normal_bear = true;
     private int move_count;
 
     public Bear() {
-        Random random = new Random();
-        int chance = random.nextInt(2) + 1;
-        is_normal_bear = chance == 1;
+        Random rand = new Random();
+        is_normal_bear = rand.nextInt(100) < 50;
         move_count = 0;
+        System.out.println("Bear is normal: " + is_normal_bear);
     }
 
     @Override
     public Color getColor() {
-        if (is_normal_bear) {
-            is_normal_bear = false;
-            return Color.WHITE;
-        } else {
-            return Color.BLACK;
-        }
+        return !(is_normal_bear) ? Color.WHITE : Color.BLACK;
     }
 
     @Override
