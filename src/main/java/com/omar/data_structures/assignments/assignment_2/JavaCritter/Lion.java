@@ -37,14 +37,18 @@ public class Lion extends Critter {
         } else if (info.getFront() == Neighbor.WALL
                 || info.getFront() == Neighbor.SAME) {
             Random rand = new Random();
-            int random_direction = rand.nextInt(2) + 1;
-            return switch (random_direction) {
-                case 1 -> Action.LEFT;
-                case 2 -> Action.RIGHT;
-                default -> Action.HOP;
-            };
+            boolean random_direction = rand.nextInt(100) < 50;
+            return random_direction ? Action.LEFT : Action.RIGHT;
         } else {
             return Action.HOP;
         }
+    }
+
+    public static void main(String[] args) {
+        Lion l = new Lion();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(l.getColor());
+        }
+
     }
 }
