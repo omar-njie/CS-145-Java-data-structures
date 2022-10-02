@@ -22,6 +22,10 @@ public class Lion extends Critter {
             case 4 -> Color.BLUE;
             case 5 -> Color.PINK;
             default -> Color.BLACK;
+            // prevent random_color from generating the same number twice in a row
+
+
+
         };
     }
 
