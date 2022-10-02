@@ -16,7 +16,6 @@ public class Bear extends Critter {
         Random rand = new Random();
         is_normal_bear = rand.nextInt(100) < 50;
         move_count = 0;
-        System.out.println("Bear is normal: " + is_normal_bear);
     }
 
     @Override
