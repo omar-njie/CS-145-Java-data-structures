@@ -1,6 +1,8 @@
 package com.omar.learn;
 
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @author Omar
@@ -10,13 +12,17 @@ public class RandomChance {
 
     public static void main(String[] args) {
 
-        Random rand = new Random();
-        int rand_num;
+        Random r = new Random();
         for (int i = 0; i < 5; i++) {
-            rand_num = rand.nextInt(5) + 1;
-            System.out.print(rand_num + " ");
+            int num = r.nextInt(5) + 1;
+            System.out.println(num);
         }
-        // do not pick the same number in a row
+        System.out.println("--------------------");
+        Set<Integer> set = new LinkedHashSet<>();
+        while (set.size() < 5) {
+            set.add(r.nextInt(5) + 1);
+        }
+        System.out.println("Random numbers with no duplicates = " + set);
 
     }
 

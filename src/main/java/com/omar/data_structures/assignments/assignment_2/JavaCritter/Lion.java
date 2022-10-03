@@ -1,7 +1,9 @@
 package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 
 import java.awt.*;
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @author Omar
@@ -14,19 +16,29 @@ public class Lion extends Critter {
     @Override
     public Color getColor() {
         Random rand = new Random();
-        int random_color = rand.nextInt(5) + 1;
-        return switch (random_color) {
+       /* return switch (random_color) {
             case 1 -> Color.RED;
             case 2 -> Color.GREEN;
             case 3 -> Color.YELLOW;
             case 4 -> Color.BLUE;
             case 5 -> Color.PINK;
             default -> Color.BLACK;
-            // prevent random_color from generating the same number twice in a row
+        };*/
+        Set<Color> colors = new LinkedHashSet<>();
+        while (colors.size() < 5) {
+            int random_color = rand.nextInt(5) + 1;
+            colors.add(switch (random_color) {
+                case 1 -> Color.RED;
+                case 2 -> Color.GREEN;
+                case 3 -> Color.YELLOW;
+                case 4 -> Color.BLUE;
+                case 5 -> Color.PINK;
+                default -> Color.BLACK;
+            });
+        }
+        return colors.iterator().next();
 
 
-
-        };
     }
 
     @Override
