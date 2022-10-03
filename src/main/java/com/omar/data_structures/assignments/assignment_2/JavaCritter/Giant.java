@@ -68,5 +68,4 @@ public class Giant extends Critter {
             return Action.LEFT;
         }
     }
-
 }

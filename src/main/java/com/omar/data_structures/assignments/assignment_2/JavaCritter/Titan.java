@@ -28,7 +28,7 @@ public class Titan extends Giant {
             to have the parent/(Giant) class do all the hard work, and then this class will look
             at the data, and return the new/modified result. You will need to use your superpower here!
     */
-    Titan() {}
+    public Titan() {}
 
     @Override
     public Color getColor() {
