@@ -4,31 +4,44 @@ import java.awt.*;
 import java.util.Random;
 
 /**
+ * <h3>
+ *     The Giant class is a subclass of the Critter class.
+ *     It represents a Giant inside a critter simulation.
+ *     It determines if the giant is the coward or a warrior type.
+ *     It decides whether the giant is a fee, fie, foe, or fum.
+ * </h3>
+ * @see Critter
  * @author Omar
  * @version 9/29/22
  */
 public class Giant extends Critter {
 
-    private boolean CowardType;
-    private boolean WarriorType;
+    private boolean coward_type;
+    private boolean warrior_type;
     private int move_count;
+
+    /**
+     * Determine if the Giant is a coward or a warrior type
+     * For being a warrior type, the Giant must have a 75% chance,
+     * and a 25% chance for being a coward type.
+     */
     public Giant() {
-        // determines if the Giant is a CowardType(25% chance) or a WarriorType(75% chance).
-        Random r = new Random();
-        CowardType = r.nextInt(100) < 25;
-        WarriorType = r.nextInt(100) < 75;
+        Random random_chance = new Random();
+        coward_type = random_chance.nextInt(100) < 25; // 25% chance
+        warrior_type = random_chance.nextInt(100) < 75; // 75% chance
         move_count = 0;
     }
 
+
     @Override
     public Color getColor() {
-        return WarriorType ? Color.GRAY : Color.MAGENTA;
-
+        return warrior_type ? Color.GRAY : Color.MAGENTA;
     }
+
 
     @Override
     public String toString() {
-        if (CowardType) {
+        if (coward_type) {
             if (move_count % 24 < 6) {
                 return "fee";
             } else if (move_count % 24 < 12) {
@@ -51,13 +64,14 @@ public class Giant extends Critter {
         }
     }
 
+
     @Override
     public Action getMove(CritterInfo info) {
         move_count++;
         if (info.getFront() == Neighbor.OTHER) {
-            if (CowardType) {
-                CowardType = false;
-                WarriorType = true;
+            if (coward_type) {
+                coward_type = false;
+                warrior_type = true;
             }
             return Action.INFECT;
         } else if (info.getFront() == Neighbor.EMPTY) {
