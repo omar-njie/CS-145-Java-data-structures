@@ -1,50 +1,54 @@
 package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 
 import java.awt.*;
-import java.util.LinkedHashSet;
 import java.util.Random;
-import java.util.Set;
 
 /**
+ * <h3>
+ *     The Lion class is a subclass of the Critter class.
+ *     It represents a Lion inside a critter simulation.
+ *     It assigns the lion a random color for every five moves.
+ * </h3>
+ * @see Critter
  * @author Omar
  * @version 9/29/22
  */
 public class Lion extends Critter {
 
+    private int move_count;
+    private int random_color;
+
+    // Default constructor
     public Lion() {}
+
 
     @Override
     public Color getColor() {
         Random rand = new Random();
-       /* return switch (random_color) {
-            case 1 -> Color.RED;
-            case 2 -> Color.GREEN;
-            case 3 -> Color.YELLOW;
-            case 4 -> Color.BLUE;
-            case 5 -> Color.PINK;
-            default -> Color.BLACK;
-        };*/
-        Set<Color> colors = new LinkedHashSet<>();
-        while (colors.size() < 5) {
-            int random_color = rand.nextInt(5) + 1;
-            colors.add(switch (random_color) {
-                case 1 -> Color.RED;
-                case 2 -> Color.GREEN;
-                case 3 -> Color.YELLOW;
-                case 4 -> Color.BLUE;
-                case 5 -> Color.PINK;
-                default -> Color.BLACK;
-            });
+        if (move_count % 5 == 0) {
+            rand.nextInt(5);
+            int next;
+            do {
+                next = rand.nextInt(5);
+            } while (next == random_color);
+            random_color = next;
         }
-        return colors.iterator().next();
-
-
+        return switch (random_color) {
+            case 0 -> Color.RED;
+            case 1 -> Color.GREEN;
+            case 2 -> Color.YELLOW;
+            case 3 -> Color.BLUE;
+            case 4 -> Color.PINK;
+            default -> null;
+        };
     }
+
 
     @Override
     public String toString() {
         return "L";
     }
+
 
     @Override
     public Action getMove(CritterInfo info) {
@@ -58,13 +62,5 @@ public class Lion extends Critter {
         } else {
             return Action.HOP;
         }
-    }
-
-    public static void main(String[] args) {
-        Lion l = new Lion();
-        for (int i = 0; i < 5; i++) {
-            System.out.println(l.getColor());
-        }
-
     }
 }
