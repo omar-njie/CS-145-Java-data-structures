@@ -4,14 +4,12 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * <h3>
- *     The Bear class is a subclass of the Critter class.
- *     It represents a Bear inside a critter simulation.
- *     It checks if the bear is a normal or a polar bear.
- * </h3>
- * @see Critter
+ * The Bear class is a subclass of the {@link Critter} class.
+ * It checks if the bear is a normal or a polar bear.
+ *
  * @author Omar
- * @version 9/29/22
+ * @version 10.5.22
+ * @see Critter
  */
 public class Bear extends Critter {
 
