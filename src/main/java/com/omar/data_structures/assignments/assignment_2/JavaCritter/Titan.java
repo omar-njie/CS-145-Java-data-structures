@@ -4,7 +4,7 @@ import java.awt.*;
 
 /**
  * The Titan class is a subclass of the {@link Giant} class.
- * It overrides the getColor() method from the Giant class and
+ * It overrides the {@link Giant#getColor()} method from the Giant class and
  * change the color based on what the Giant class returns if it is a coward or a warrior type.
  *
  * @author Omar
