@@ -4,11 +4,11 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * <h3>
+ * <h4>
  *     The Lion class is a subclass of the Critter class.
  *     It represents a Lion inside a critter simulation.
  *     It assigns the lion a random color for every five moves.
- * </h3>
+ * </h4>
  * @see Critter
  * @author Omar
  * @version 9/29/22

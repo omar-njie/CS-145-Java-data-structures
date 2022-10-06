@@ -4,12 +4,11 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * <h3>
+ * <h4>
  *     The Giant class is a subclass of the Critter class.
  *     It represents a Giant inside a critter simulation.
- *     It determines if the giant is the coward or a warrior type.
- *     It decides whether the giant is a fee, fie, foe, or fum.
- * </h3>
+ *     It determines if the giant is a coward or a warrior type.
+ * </h4>
  * @see Critter
  * @author Omar
  * @version 9/29/22
