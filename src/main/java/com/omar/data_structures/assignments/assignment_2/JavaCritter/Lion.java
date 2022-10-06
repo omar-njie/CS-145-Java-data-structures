@@ -4,21 +4,21 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * <h4>
- *     The Lion class is a subclass of the Critter class.
- *     It represents a Lion inside a critter simulation.
- *     It assigns the lion a random color for every five moves.
- * </h4>
- * @see Critter
+ * The Lion class is a subclass of the {@link Critter} class.
+ * It assigns the lion a random color for every five moves.
+ *
  * @author Omar
- * @version 9/29/22
+ * @version 10.5.22
+ * @see Critter
  */
 public class Lion extends Critter {
 
     private int move_count;
     private int random_color;
 
-    // Default constructor
+    /**
+     * Creates a lion object.
+     */
     public Lion() {}
 
 
@@ -58,7 +58,7 @@ public class Lion extends Critter {
                 || info.getFront() == Neighbor.SAME) {
             Random rand = new Random();
             boolean random_direction = rand.nextInt(100) < 50;
-            return random_direction ? Action.LEFT : Action.RIGHT;
+            return random_direction ? Action.LEFT : Action.RIGHT; // 50% chance to turn left or right
         } else {
             return Action.HOP;
         }
