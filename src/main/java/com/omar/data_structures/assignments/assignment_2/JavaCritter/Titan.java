@@ -3,12 +3,21 @@ package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 import java.awt.*;
 
 /**
+ * The Titan class is a subclass of the {@link Giant} class.
+ * It overrides the getColor() method from the Giant class and
+ * change the color based on what the Giant class returns if it is a coward or a warrior type.
+ *
  * @author Omar
- * @version 9/29/22
+ * @version 10.5.22
+ * @see Giant
  */
 public class Titan extends Giant {
 
+    /**
+     * Creates a Titan object.
+     */
     public Titan() {}
+
 
     @Override
     public Color getColor() {
@@ -24,5 +33,4 @@ public class Titan extends Giant {
             return Color.WHITE;
         }
     }
-
 }
