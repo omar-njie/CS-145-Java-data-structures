@@ -66,10 +66,10 @@ public class CS145ArrayListPractice {
             }
         } else {
             /*
-             calling the swapPairs method recursively,
-             this will make the last element of the list remain the same
-             NOTE: the swapping is always done in the first portion of the code.
-            */
+             Calling the swapPairs() method recursively, this will
+             make the last element of the list remain the same
+             if the number of values in the list is odd
+             */
             swapPairs(my_list.subList(0, my_list.size() - 1));
         }
     }
