@@ -5,8 +5,9 @@ import java.util.List;
 
 /**
  * List Practice
+ *
  * @author Omar
- * @version 10/8/22
+ * @version 10.9.22
  */
 public class CS145ArrayListPractice {
 
@@ -43,8 +44,6 @@ public class CS145ArrayListPractice {
         myList.add("7");
         myList.add("8");
         myList.add("9");
-        myList.add("10");
-        myList.add("11");
         System.out.print("Before: ");
         System.out.println(myList);
 
