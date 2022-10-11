@@ -1,6 +1,8 @@
 package com.omar.data_structures.assignments.short_assignments;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -58,9 +60,9 @@ public class CS145ArrayListPractice {
         if (my_list.size() % 2 == 0) {
             int x = 0;
             while (x < my_list.size()) {
-                String _temp = my_list.get(x);
+                String tmp = my_list.get(x);
                 my_list.set(x, my_list.get(x + 1));
-                my_list.set(x + 1, _temp);
+                my_list.set(x + 1, tmp);
                 x += 2;
             }
         } else {
