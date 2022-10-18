@@ -1,7 +1,6 @@
 package com.omar.data_structures.assignments.assignment_3;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author Omar
@@ -91,37 +90,6 @@ public class LevenshteinFinder {
     }
 
     private void findPath(String from, String to) {
-        /*
-            This method will find the path between two words.
-            Initialize the class path List to a new empty List.
-
-            Check the distance, if it is negative, store an error message in the path List and then exit the method.
-
-            If the distance is zero or positive add the first element to the list.
-
-            Now in a loop that starts at the distance minus 1, and goes down until 1, look at the set of neighbors of the
-            word in the last box of the list.  Find one that has a distance to the ending word that matches the current
-            loop counter.   There may be multiples, but there has to be at least one.   Find this word and add it to the
-            list.
-
-            Now repeat the loop until the for loop quits.  Then add the ending word to the list.
-
-            You are done.
-
-            Here is an example for the path from love -> hate.
-
-            The distance from love to hate is 3, so that is bigger than -1.   So, add love to the list.  The list
-            is now size one.   Now start your loop from distance  -1 (2) to 1.   So, i is currently 2.   Find
-            any  word  in  the  neighbor  of  love,  that  has  a  distance  to  hate  of  size  2.     Use  your
-            findDistance method here!.  One of those words is "lave".   So add that to the array.
-
-            Next  round,  i  is  one.      The  list  is  now  [love,  lave].    So,  find  a  neighbor  of  "lave"  that  has a
-            distance to "hate" of one.   One possible word is "late".  So, add "late" to the list which now
-            looks like [love, lave, late]
-
-            That  should  finish  the  loop,  add  "hate"  to  the  list.    The  final  list  looks  like  [love,  lave,  late,
-            hate].   Store that list in the class field.   And you are done.
-        */
         path = new ArrayList<>();
         if (distance == -1) {
             path.add("There is no path");
