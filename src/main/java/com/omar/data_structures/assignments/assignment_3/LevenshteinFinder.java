@@ -1,5 +1,7 @@
 package com.omar.data_structures.assignments.assignment_3;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 /**
@@ -8,22 +10,22 @@ import java.util.*;
  */
 public class LevenshteinFinder {
 
-    private String from;
-    private String to;
-    private Map<String, Set<String>> words_list;
+    private final String from, to;
+    private final Map<String, Set<String>> words_list;
     private int distance = -1;
     private List<String> path;
 
 
     public LevenshteinFinder(String from, String to, Set<String> words_list) {
-        this.from = from;
-        this.to = to;
-
         if (from.length() != to.length()) {
             throw new IllegalArgumentException(
                     "The two words must be the same length"
             );
         }
+
+        this.from = from;
+        this.to = to;
+
 
         this.words_list = new TreeMap<>();
         for (String word : words_list) {
@@ -33,19 +35,18 @@ public class LevenshteinFinder {
         }
         for (String word : this.words_list.keySet()) {
             for (String word_2 : this.words_list.keySet()) {
-                if (isNeighbor(word, word_2)) {
+                if (is_neighbor(word, word_2)) {
                     this.words_list.get(word).add(word_2);
                     this.words_list.get(word_2).add(word);
                 }
             }
         }
 
-        findDistance(from, to);
+        this.distance = findDistance(from, to);
         findPath(from, to);
-
     }
 
-    private boolean isNeighbor(String word, String word_2) {
+    private boolean is_neighbor(String word, String word_2) {
         int count = 0;
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) != word_2.charAt(i)) {
@@ -56,11 +57,11 @@ public class LevenshteinFinder {
     }
 
     public int getDistance() {
-        return distance;
+        return this.distance;
     }
 
     public String getPath() {
-        if (distance == -1) {
+        if (this.distance == -1) {
             return "There is no path";
         }
         return String.join("->", path);
@@ -83,7 +84,7 @@ public class LevenshteinFinder {
         }
 
         if (set_2.contains(to)) {
-            distance = counter;
+            // distance = counter;
             return counter;
         }
         return -1;
