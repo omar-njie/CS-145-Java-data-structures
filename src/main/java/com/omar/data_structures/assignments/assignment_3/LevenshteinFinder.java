@@ -16,7 +16,6 @@ public class LevenshteinFinder {
     private int distance = -1;
     private List<String> path;
 
-
     /**
      * Create a new Levenshtein Finder that takes a <u><i>word</i></u> to from a <u><i>word</i></u>
      * it searches through a set of words to find a path that lead to the <u><i>to word</i></u>.
@@ -29,7 +28,6 @@ public class LevenshteinFinder {
     public LevenshteinFinder(String from, String to, Set<String> words_list) {
         this.from = from;
         this.to = to;
-        //this.distance = -1;
 
         if (this.from.length() != this.to.length()) {
             throw new IllegalArgumentException(
@@ -56,7 +54,6 @@ public class LevenshteinFinder {
         findPath(from, to);
     }
 
-
     private boolean is_neighbor(String word, String word_2) {
         int count = 0;
         for (int i = 0; i < word.length(); i++) {
@@ -67,14 +64,12 @@ public class LevenshteinFinder {
         return count == 1;
     }
 
-
     /**
      * @return distance
      */
     public int getDistance() {
         return this.distance;
     }
-
 
     /**
      * @return No path if the distance is -1, & the delimiter "->" + path
@@ -87,7 +82,6 @@ public class LevenshteinFinder {
         }
         return String.join("->", path); // join two strings with the delimiter "->"
     }
-
 
     // find two words
     private int findDistance(String from, String to) {
@@ -108,10 +102,9 @@ public class LevenshteinFinder {
         return -1;
     }
 
-
     private void findPath(String from, String to) {
         this.path = new ArrayList<>();
-
+        
         if (this.distance == -1) {
             this.path.add("There is no path");
             return;
@@ -133,7 +126,6 @@ public class LevenshteinFinder {
         }
         this.path.add(to);
     }
-
 
     private int differentLetters(String from, String to) {
         int count = 0;
