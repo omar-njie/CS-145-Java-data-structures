@@ -88,12 +88,15 @@ public class LevenshteinFinder {
         Set<String> set_1 = new TreeSet<>(Set.of());
         Set<String> set_2 = new TreeSet<>(Set.of(from));
         int counter = 0;
+        set_2.add(from);
 
-        while (set_1.size() != set_2.size()
-                && !set_2.contains(to)) {
+        while (set_1.size() != set_2.size() && !set_2.contains(to)) {
             set_1.addAll(set_2);
-            for (String word : set_1)
+            set_2.clear();
+            for (String word : set_1) {
                 set_2.addAll(words_list.get(word));
+                set_2.add(word);
+            }
             counter++;
         }
 
@@ -104,7 +107,7 @@ public class LevenshteinFinder {
 
     private void findPath(String from, String to) {
         this.path = new ArrayList<>();
-        
+
         if (this.distance == -1) {
             this.path.add("There is no path");
             return;
