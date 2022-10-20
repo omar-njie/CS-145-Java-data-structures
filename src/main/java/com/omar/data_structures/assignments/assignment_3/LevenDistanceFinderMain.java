@@ -58,6 +58,8 @@ public class LevenDistanceFinderMain {
         System.out.println("The path between your words is : " + thePath);
         System.out.println("******************************************************************");
         System.out.println("Total execution time: " + (endTime - startTime) + "ms.");
+        // convert to seconds
+        System.out.println("Total execution time: " + (endTime - startTime) / 1000.0 + "s.");
     }
 
 
@@ -66,11 +68,11 @@ public class LevenDistanceFinderMain {
     // benefit of checking that the word is in the delieverd dictionary.
     // Note it also forces a lowercase onto the word
     private String getWordInDictionary(Scanner x) {
-        System.out.print("--->");
+        System.out.print("---> ");
         String w = x.next().trim().toLowerCase();
         while (!masterDictionary.contains(w)) {
             System.out.println("Please type in a word in the dictionary");
-            System.out.print("--->");
+            System.out.print("---> ");
             w = x.next().toLowerCase();
         }
         return w.toLowerCase();
@@ -133,7 +135,7 @@ public class LevenDistanceFinderMain {
     // This is a private class that is acting like a struct from c++
     // used to hold a pair of words.
 
-    private class WordPair {
+    private static class WordPair {
         public String from;
         public String to;
     }
