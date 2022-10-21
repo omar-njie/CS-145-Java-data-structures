@@ -82,8 +82,8 @@ public class LevenshteinFinder {
             set_1.addAll(set_2);
             set_2.clear();
             for (String word : set_1) {
-                set_2.addAll(this.words_list.get(word));
-                set_2.add(word);
+                set_2.addAll(this.words_list.get(word)); // get all the words from set 1
+                set_2.add(word); // and add them to set 2.
             }
             counter++;
         }
