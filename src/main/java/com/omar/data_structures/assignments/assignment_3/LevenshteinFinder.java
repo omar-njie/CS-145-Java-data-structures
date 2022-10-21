@@ -53,7 +53,7 @@ public class LevenshteinFinder {
 
 
     /**
-     * @return distance
+     * @return distance between the two words
      */
     public int getDistance() {
         return this.distance;
