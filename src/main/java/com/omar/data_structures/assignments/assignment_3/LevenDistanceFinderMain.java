@@ -12,18 +12,12 @@ import java.util.TreeSet;
  * and the give those to the solver class that the students will need to
  * write.
  *
- * @author Michael W. Wood
  * @version 2.2  - September 2022
+ * @author Michael W. Wood
  */
 public class LevenDistanceFinderMain {
     private Set<String> masterDictionary;
 
-    /**
-     * Main program that creates an instance of the LevenDistanceFinder
-     * program and runs a copy.
-     *
-     * @param args The system flags from the O.S.
-     */
     public static void main(String[] args) {
         LevenDistanceFinderMain program = new LevenDistanceFinderMain();
         program.run();
@@ -34,11 +28,9 @@ public class LevenDistanceFinderMain {
      * This method runs the main program instance, and kicks off the user
      * input and data file collection routines.
      */
-
     public void run() {
-        masterDictionary = createSet("dictionary.txt");
+        masterDictionary = createSet();
 
-        Set<String> smallDictionary;
         WordPair path;
         path = getStartingWords();
 
@@ -58,14 +50,13 @@ public class LevenDistanceFinderMain {
         System.out.println("The path between your words is : " + thePath);
         System.out.println("******************************************************************");
         System.out.println("Total execution time: " + (endTime - startTime) + "ms.");
-        // convert to seconds
         System.out.println("Total execution time: " + (endTime - startTime) / 1000.0 + "s.");
     }
 
 
     // Private method
     // This method is a replacement for Scanner.next() that has a side
-    // benefit of checking that the word is in the delieverd dictionary.
+    // benefit of checking that the word is in the delivered dictionary.
     // Note it also forces a lowercase onto the word
     private String getWordInDictionary(Scanner x) {
         System.out.print("---> ");
@@ -110,9 +101,8 @@ public class LevenDistanceFinderMain {
     // This method opens up the data file, and reads all the words from
     // the dictionary file and sorts them into sets of the correct size.
     // From this dictionary the final group of dictionary words is found.
-
-    private Set<String> createSet(String fname) {
-        File mainDictionary = new File(fname);
+    private Set<String> createSet() {
+        File mainDictionary = new File("dictionary.txt");
         Scanner fileRead = null;
         try {
             fileRead = new Scanner(mainDictionary);
@@ -127,14 +117,11 @@ public class LevenDistanceFinderMain {
             String w = fileRead.next();
             wordGroups.add(w);
         }
-
-
         return wordGroups;
     }
 
     // This is a private class that is acting like a struct from c++
     // used to hold a pair of words.
-
     private static class WordPair {
         public String from;
         public String to;
