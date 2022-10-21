@@ -50,7 +50,7 @@ public class LevenDistanceFinderMain {
         System.out.println("The path between your words is : " + thePath);
         System.out.println("******************************************************************");
         System.out.println("Total execution time: " + (endTime - startTime) + "ms.");
-        System.out.println("Total execution time: " + (endTime - startTime) / 1000.0 + "s.");
+        System.out.println("\t\t\t\t\t\s\s" + (endTime - startTime) / 1000.0 + "s.");
     }
 
 
