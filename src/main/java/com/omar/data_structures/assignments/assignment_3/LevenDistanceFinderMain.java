@@ -12,8 +12,8 @@ import java.util.TreeSet;
  * and the give those to the solver class that the students will need to
  * write.
  *
- * @version 2.2  - September 2022
  * @author Michael W. Wood
+ * @version 2.2  - September 2022
  */
 public class LevenDistanceFinderMain {
     private Set<String> masterDictionary;
@@ -21,7 +21,6 @@ public class LevenDistanceFinderMain {
     public static void main(String[] args) {
         LevenDistanceFinderMain program = new LevenDistanceFinderMain();
         program.run();
-
     }
 
     /**
@@ -45,7 +44,6 @@ public class LevenDistanceFinderMain {
         int dist = myMain.getDistance();
         String thePath = myMain.getPath();
 
-        // Print out the results
         System.out.println("The distance between your words is " + dist);
         System.out.println("The path between your words is : " + thePath);
         System.out.println("******************************************************************");
@@ -54,24 +52,23 @@ public class LevenDistanceFinderMain {
     }
 
 
-    // Private method
     // This method is a replacement for Scanner.next() that has a side
     // benefit of checking that the word is in the delivered dictionary.
     // Note it also forces a lowercase onto the word
     private String getWordInDictionary(Scanner x) {
         System.out.print("---> ");
-        String w = x.next().trim().toLowerCase();
-        while (!masterDictionary.contains(w)) {
+        String word = x.next().trim().toLowerCase();
+        while (!masterDictionary.contains(word)) {
             System.out.println("Please type in a word in the dictionary");
             System.out.print("---> ");
-            w = x.next().toLowerCase();
+            word = x.next().toLowerCase();
         }
-        return w.toLowerCase();
+        return word.toLowerCase();
     }
 
-    // Private Method
+
     // Returns a small data structure that contains the two words
-    // that are of interest.  The word to start from, and the word
+    // that are of interest. The word to start from, and the word
     // to end with.
     private WordPair getStartingWords() {
         Scanner keyboard = new Scanner(System.in);
@@ -97,7 +94,7 @@ public class LevenDistanceFinderMain {
         return x;
     }
 
-    // Private Method
+
     // This method opens up the data file, and reads all the words from
     // the dictionary file and sorts them into sets of the correct size.
     // From this dictionary the final group of dictionary words is found.
