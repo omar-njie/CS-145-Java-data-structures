@@ -142,7 +142,7 @@ public class MidTermPrep {
         }
     }
 
-    /*static void Maps() {
+    static void Maps() {
         Map<String, Integer> ages = new TreeMap<>();
         ages.put("tim", 20);
         ages.put("hello", 15);
@@ -160,9 +160,9 @@ public class MidTermPrep {
             int put = ages.put(name, ages.get(name) + 10);
             System.out.println(put);
         }
-    }*/
+    }
 
-    /*static void CharCount(String count) {
+    static void CharCount(String count) {
         Map<Character, Integer> count_map = new HashMap<>();
         for (int i = 0; i < count.length(); i++) {
             char z = count.charAt(i);
@@ -178,7 +178,7 @@ public class MidTermPrep {
         for (char i : count_map.keySet()) {
             System.out.println("\"" + i + "\" = " + count_map.get(i));
         }
-    }*/
+    }
 
     // remove from a set while iterating through it
     static void setIterating() {
@@ -200,7 +200,7 @@ public class MidTermPrep {
     }
 
 
-    /*static void removeBelowX() {
+    static void removeBelowX() {
         Set<Integer> set = new TreeSet<>();
         set.add(1);
         set.add(2);
@@ -209,31 +209,31 @@ public class MidTermPrep {
         set.add(5);
         set.removeIf(element -> element < 5);
         System.out.println(set);
-    }*/
+    }
 
-     /*static int digitSum(int n) {
+     static int digitSum(int n) {
         if (n < 10) {
             return n;
         } else {
             return n % 10 + digitSum(n / 10);
         }
-    }*/
+    }
 
-    /*static int digitMultiply(int n) {
+    static int digitMultiply(int n) {
         if (n < 10) {
             return n;
         } else {
             return n % 10 * digitMultiply(n / 10);
         }
-    }*/
+    }
 
-    /*static int digitDivide(int n) {
+    static int digitDivide(int n) {
         if (n < 10) {
             return n;
         } else {
             return n % 10 / digitDivide(n / 10);
         }
-    }*/
+    }
 
     static int countInAreaCode(Map<String, String> map, String areaCode) {
         int count = 0;
