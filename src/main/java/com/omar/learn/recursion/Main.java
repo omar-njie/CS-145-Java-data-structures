@@ -1,5 +1,8 @@
 package com.omar.learn.recursion;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Omar
  * @version 10/23/22
@@ -8,9 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
       //  printStars(4);
-      System.out.println(intPow(2, 4));
-      //  System.out.println(mystery(648));
-        System.out.println(mystery2(348));
+      //System.out.println(intPow(2, 4));
+      //System.out.println(mystery(648));
+        // System.out.println(mystery2(348));
     }
 
     public static void printStars(int n) {
@@ -37,16 +40,6 @@ public class Main {
         }
     }
 
-    public static int mystery2(int n) {
-        if (n < 10) {
-            return (10 * n) + n;
-        } else {
-            int a = mystery(n / 10);
-            System.out.println(a);
-            int b = mystery(n % 10);
-            System.out.println(b);
-            return (100 * a) + b;
-        }
-    }
+
 
 }
