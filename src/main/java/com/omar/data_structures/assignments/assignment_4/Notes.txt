@@ -1,0 +1,10 @@
+CARD GAME:
+    - Every card has 3 values expresses as Integers
+        - (int R, int S, int P) {}
+            - Each: low: 1, max: 1000.
+        - Cards have a calculated cost of how far apart the R, S, P values are from on another.
+            - Example: x -> sum: of R, P and S; x = R + P + S
+            - Cost Formula: cost = [12/10 * ((R/S)^5 + (P/X)^5 + S/X)^5]
+                - Round up to the nearest integer.
+            - When comparing two cards: Higher cost comes after the other unless they have the same cost
+                - if two cards have the same cost { (Card(R) == Card(S)) }
