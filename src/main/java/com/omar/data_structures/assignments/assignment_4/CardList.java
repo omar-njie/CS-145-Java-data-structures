@@ -11,7 +11,7 @@ public interface CardList {
     /**
      * This method should return a representation of the list from index 0 to the final index.
      *
-     * @return The string visualization of the list.
+     * @return The string visulation of the list.
      */
     String toString();
 
@@ -60,7 +60,7 @@ public interface CardList {
      * This method should return the i'th last element from the list.
      *
      * @param i The index of the desired card.
-     * @return The card object located in index x from the list.
+     * @return The card object locatated in index x from the list.
      * @throws IndexOutOfBoundsException if the i value is outside the range of the list
      */
     Card get(int i);
@@ -79,7 +79,7 @@ public interface CardList {
     void sort();
 
     /**
-     * Apply a weak shuffle algorithm to rearrange the items in the list.
+     * Apply a weak shuffly algorthm to rearrange the items in the list.
      */
     void shuffle();
 
