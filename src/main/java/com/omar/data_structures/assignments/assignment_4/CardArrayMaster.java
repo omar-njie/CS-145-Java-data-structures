@@ -60,7 +60,9 @@ public class CardArrayMaster {
 
         // STAGE 3
         // Can we add cards in the middle?
-         SO.println();SO.println("Stage 3");SO.println();
+         SO.println();
+         SO.println("Stage 3");
+         SO.println();
          masterList1.add(1, new Card(2,4,10));
          masterList1.add(1, new Card(5,5,9));
          SO.print("Added internal : ");
