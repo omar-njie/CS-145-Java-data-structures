@@ -1,11 +1,14 @@
 package com.omar.learn.comparable_interface;
 
+import com.omar.data_structures.assignments.assignment_4.Card;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
+
+import static com.omar.data_structures.assignments.assignment_4.Card.Cost;
 
 /**
  * @author Omar
@@ -69,21 +72,16 @@ public class Car implements Comparable<Car> {
         System.out.println(result);
         int z = y.nextInt(6) + 1;
         System.out.println(z);
-       /* double r = 2;
-        double s = 1;
-        double p = 3;
-        double x = r + p + s;
-        // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
-        double f = 12.0 / (10 * ((Math.pow(r / x, 5)) + (Math.pow(s / x, 5)) + (Math.pow(p / x, 5))));
-        System.out.println(Math.round(f));*/
-        // convert commented section to int
-        int r = 1;
-        int s = 2;
-        int p = 3;
+        int r = 5;
+        int s = 5;
+        int p = 5;
         int x = r + p + s;
-        double f = 12.0 / (10 * ((Math.pow((double) r / (double) x, 5)) + (Math.pow((double) s / (double) x, 5)) + (Math.pow((double) p / (double) x, 5))));
+        double f = 12 / (10 * ((Math.pow((double) r / (double) x, 5)) + (Math.pow((double) s / (double) x, 5)) + (Math.pow((double) p / (double) x, 5))));
         // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
-        System.out.println(Math.round(f));
+        System.out.println(f);
+        System.out.println(Cost(50, 60, 80));
+        // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)] in html
+        System.out.println("<html><body><p> [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)] </p></body></html>");
     }
 
     static int customPow(int base, int exp) {
