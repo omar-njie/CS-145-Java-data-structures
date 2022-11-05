@@ -18,7 +18,7 @@ import java.io.PrintStream;
 
 public class CardArrayMaster {
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         PrintStream SO = System.out;  // Lazy mode  enabled;
 
         SO.println("Stage 0");
@@ -38,7 +38,9 @@ public class CardArrayMaster {
         // STAGE 1
         // Can we add to a master list and print it out?
 
-         SO.println();SO.println("Stage 1");SO.println();
+         SO.println();
+         SO.println("Stage 1");
+         SO.println();
          CardList masterList1 = new CardArrayList();
          masterList1.add(new Card());
          masterList1.add(new Card(200, 300, 500));
@@ -52,7 +54,9 @@ public class CardArrayMaster {
 
         // STAGE 2
         // Can we add a premium card?
-         SO.println();SO.println("Stage 2");SO.println();
+         SO.println();
+         SO.println("Stage 2");
+         SO.println();
          masterList1.add(new PremiumCard(25, 40, 55));
          SO.print("Premium Card   : ");
          SO.println(masterList1);
@@ -71,7 +75,8 @@ public class CardArrayMaster {
 
         // STAGE 4
         // can we add more cards and make it expand?
-         SO.println();SO.println("Stage 4");SO.println();
+         SO.println();SO.println("Stage 4");
+         SO.println();
          masterList1.add(new Card(6,7,8));
          masterList1.add(new Card(7,8,9));
          masterList1.add(new Card(8,10,12));
@@ -113,10 +118,14 @@ public class CardArrayMaster {
 
         // STAGE 8
         // Did get work correctly?
-         SO.println();SO.println("Stage 8");SO.println();
+         SO.println();
+         SO.println("Stage 8");
+         SO.println();
          SO.print("Checking equals: ");
          if (masterList1.get(9).equals(new Card(9,90,900)))
-         SO.println("Success");   else SO.println("Failure");
+            SO.println("Success");
+         else
+             SO.println("Failure");
 
          SO.print("Get Values     : ");
          SO.println(masterList1.get(2) + " : " + masterList1.get(4) );
@@ -128,7 +137,9 @@ public class CardArrayMaster {
 
         // STAGE 9
         // IndexOF
-         SO.println();SO.println("Stage 9");SO.println();
+         SO.println();
+         SO.println("Stage 9");
+         SO.println();
          SO.print("Found Success(3): ");
          SO.println(masterList1.indexOf(new Card(5)));
          SO.print("Found Success(2): ");
@@ -139,7 +150,9 @@ public class CardArrayMaster {
 
         // STAGE 10
         // Does shuffle work?
-         SO.println();SO.println("Stage 10");SO.println();
+         SO.println();
+         SO.println("Stage 10");
+         SO.println();
          SO.print("Before shuffle : ");
          SO.println(masterList1);
          masterList1.shuffle();
@@ -152,7 +165,9 @@ public class CardArrayMaster {
 
         // STAGE 11
         // Does Clear Work?
-         SO.println();SO.println("Stage 11");SO.println();
+         SO.println();
+         SO.println("Stage 11");
+         SO.println();
          masterList1.clear();
          SO.print("After Clear    : ");
          SO.println(masterList1);
@@ -161,11 +176,13 @@ public class CardArrayMaster {
         // STAGE 12
         // Create a large list
         // And check that sort works.
-         SO.println();SO.println("Stage 12");SO.println();
-         for (int i=0; i <50; i++) {
+         SO.println();
+         SO.println("Stage 12");
+         SO.println();
+         for (int i = 0; i < 50; i++) {
             masterList1.add(new Card());
          }
-         for (int i=0; i <5; i++) {
+         for (int i = 0; i <5; i++) {
             masterList1.add(new PremiumCard());
          }
 
@@ -178,7 +195,9 @@ public class CardArrayMaster {
 
         // STAGE 13
         // Check Mystery Method
-         SO.println();SO.println("Stage 13");SO.println();
+         SO.println();
+         SO.println("Stage 13");
+         SO.println();
 
          SO.print("Before Mystery  : ");
          SO.println(masterList1);
@@ -190,10 +209,12 @@ public class CardArrayMaster {
         // STAGE 14
         // Can we create a second list
         // and make a copy of all NON premium cards
-         SO.println();SO.println("Stage 14");SO.println();
+         SO.println();
+         SO.println("Stage 14");
+         SO.println();
          CardList masterList2 = new CardArrayList(1);
 
-         for (int j = 0; j <masterList1.size(); j++) {
+         for (int j = 0; j < masterList1.size(); j++) {
             if (!(masterList1.get(j) instanceof PremiumCard)) {
                 masterList2.add(masterList1.get(j) );
              }
@@ -203,5 +224,5 @@ public class CardArrayMaster {
          SO.println(masterList2);
 
 
-    }*/
+    }
 }
