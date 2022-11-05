@@ -80,8 +80,6 @@ public class Car implements Comparable<Car> {
         // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
         System.out.println(f);
         System.out.println(Cost(50, 60, 80));
-        // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)] in html
-        System.out.println("<html><body><p> [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)] </p></body></html>");
     }
 
     static int customPow(int base, int exp) {
