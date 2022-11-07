@@ -72,14 +72,14 @@ public class Car implements Comparable<Car> {
         System.out.println(result);
         int z = y.nextInt(6) + 1;
         System.out.println(z);
-        int r = 5;
+        int r = 4;
         int s = 5;
-        int p = 5;
+        int p = 6;
         int x = r + p + s;
         double f = 12 / (10 * ((Math.pow((double) r / (double) x, 5)) + (Math.pow((double) s / (double) x, 5)) + (Math.pow((double) p / (double) x, 5))));
         // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
         System.out.println(f);
-        System.out.println(Cost(50, 60, 80));
+        System.out.println(Cost(4, 5, 6));
     }
 
     static int customPow(int base, int exp) {
