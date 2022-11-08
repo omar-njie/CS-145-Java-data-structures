@@ -73,7 +73,7 @@ public class Card implements Comparable<Card> {
         double cost = 12 / (10 * ((Math.pow((double) R / (double) X, 5))
                 + (Math.pow((double) P / (double) X, 5))
                 + (Math.pow((double) S / (double) X, 5))));
-        return Math.toIntExact(Math.round(cost));
+        return ((int) Math.ceil(cost));
     }
 
 

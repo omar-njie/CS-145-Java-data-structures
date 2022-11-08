@@ -72,14 +72,17 @@ public class Car implements Comparable<Car> {
         System.out.println(result);
         int z = y.nextInt(6) + 1;
         System.out.println(z);
-        int r = 4;
-        int s = 5;
-        int p = 6;
+        int r = 9;
+        int s = 90;
+        int p = 900;
         int x = r + p + s;
         double f = 12 / (10 * ((Math.pow((double) r / (double) x, 5)) + (Math.pow((double) s / (double) x, 5)) + (Math.pow((double) p / (double) x, 5))));
         // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
-        System.out.println(f);
-        System.out.println(Cost(4, 5, 6));
+        System.out.println("Normal: " + f);
+        System.out.println("round: " + Math.round(f) + " >> nearest integer");
+        System.out.println("ceil: " + (int) Math.ceil(f) + " >> upward to the nearest integer");
+        System.out.println("floor: " + (int) Math.floor(f) + " >> downward to the nearest integer");
+        System.out.println(Cost(1, 1, 1000));
     }
 
     static int customPow(int base, int exp) {

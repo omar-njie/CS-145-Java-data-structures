@@ -75,7 +75,8 @@ public class CardArrayMaster {
 
         // STAGE 4
         // can we add more cards and make it expand?
-         SO.println();SO.println("Stage 4");
+         SO.println();
+         SO.println("Stage 4");
          SO.println();
          masterList1.add(new Card(6,7,8));
          masterList1.add(new Card(7,8,9));
@@ -90,14 +91,18 @@ public class CardArrayMaster {
 
         // STAGE 5
         // Can we Remove the end value
-         SO.println();SO.println("Stage 5");SO.println();
+         SO.println();
+         SO.println("Stage 5");
+         SO.println();
          masterList1.remove();
          SO.print("After Remove   : ");
          SO.println(masterList1);
 
          // STAGE 6
          // Does remove return the removed value?
-         SO.println();SO.println("Stage 6");SO.println();
+         SO.println();
+         SO.println("Stage 6");
+         SO.println();
          SO.print("Removed value  : ");
          SO.println(masterList1.remove() );
          SO.print("List afterward : ");
@@ -108,7 +113,8 @@ public class CardArrayMaster {
         // Did it remove from the middle
         // And return the value removed?
          SO.println();
-         SO.println("Stage 7");SO.println();
+         SO.println("Stage 7");
+         SO.println();
          Card tmp = masterList1.remove(2);
          SO.print("Removed value  : ");
          SO.println(tmp);
