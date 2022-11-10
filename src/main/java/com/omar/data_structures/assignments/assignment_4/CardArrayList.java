@@ -1,6 +1,10 @@
 package com.omar.data_structures.assignments.assignment_4;
 
+import com.omar.learn.comparable_interface.Car;
+
 import java.util.Random;
+
+import static com.omar.data_structures.assignments.assignment_4.Card.Cost;
 
 /**
  * @author Omar
@@ -8,229 +12,237 @@ import java.util.Random;
  */
 public class CardArrayList implements CardList {
 
-    private int[] element_data;
+    private Card[] cards;
     private int size;
     public static final int DEFAULT_CAPACITY = 10;
 
 
     public CardArrayList() {
-        element_data = new int[DEFAULT_CAPACITY];
-        size = 0;
+        this.cards = new Card[DEFAULT_CAPACITY];
+        this.size = 0;
     }
+
 
     public CardArrayList(int x) {
         if (x < 1)
             throw new IllegalArgumentException("x must be greater than 0");
-        element_data = new int[x];
-        size = 0;
+        this.cards = new Card[x];
+        this.size = 0;
     }
 
 
     private void expand() {
-        int[] temp = new int[element_data.length * 2];
-        System.arraycopy(element_data, 0,
-                temp, 0, element_data.length);
-        element_data = temp;
+        Card[] temp = new Card[this.cards.length * 2];
+        for (int i = 0; i < this.cards.length; i++) {
+            temp[i] = this.cards[i];
+        }
+        this.cards = temp;
     }
 
 
     @Override
     public String toString() {
-        if (size == 0)
-            return "[0: :0]";
-
+        if (this.size == 0) {
+            return "[0: :" + this.size + "]";
+        }
+        // example: [<--: [2,3,4:55],[8,9,10:90],{{{1|1|2:37}},[4,5,6:82] -->4]
+        Card c = new Card();
         StringBuilder sb = new StringBuilder();
         sb.append("[<--: ");
-        for (int i = 0; i < size; i++) {
-            sb.append(element_data[i]);
-            if (i != size - 1) {
-                sb.append(", ");
+        for (int i = 0; i < this.size; i++) {
+            sb.append(this.cards[i].toString());
+            if (i != this.size - 1) {
+                sb.append(",");
             }
         }
-        sb.append(" -->").append(size).append("]");
+        sb.append(" -->").append(this.size).append("]");
         return sb.toString();
     }
 
 
     @Override
     public int size() {
-        return element_data.length;
+        return this.size;
     }
-
 
     @Override
     public void add(Card x) {
-        if (size == element_data.length)
-            expand();
-        element_data[size] = x.getR();
-        element_data[size] = x.getP();
-        element_data[size] = x.getS();
-        size += 1;
-
+        if (this.size == this.cards.length) {
+            this.expand();
+        }
+        this.cards[this.size] = x;
+        this.size++;
     }
 
 
     @Override
     public Card remove() {
-        if (size == 0)
-            throw new IllegalStateException("Cannot remove from empty list");
-        int temp = element_data[size - 1];
-        size -= 1;
-        return new Card(temp);
+        if (this.size == 0) {
+            throw new IllegalStateException("Cannot remove from an empty list");
+        }
+        Card c = this.cards[this.size - 1];
+        this.size--;
+        return c;
     }
 
 
     @Override
     public Card get(int x) {
-        if (x < 0 || x >= size)
-            throw new IndexOutOfBoundsException("x must be between 0 and " + (size - 1));
-        return new Card(element_data[x]);
+        if (x < 0 || x >= this.size) {
+            throw new IllegalArgumentException("x must be between 0 and " + (this.size - 1));
+        }
+        return this.cards[x];
     }
 
 
     @Override
-    public int indexOf(Card c) {
-        for (int i = 0; i < size; i++) {
-            if (element_data[i] == c.getR())
+    public int indexOf(Card x) {
+        for (int i = 0; i < this.size; i++) {
+            if (this.cards[i].equals(x)) {
                 return i;
+            }
         }
         return -1;
     }
 
+
     @Override
     public void add(int l, Card x) {
         check_capacity(size + 1);
-        if (l < 0 || l > size)
-            throw new IndexOutOfBoundsException("Location is outside the bounds of the array");
-        for (int i = size; i > l; i--)
-            element_data[i] = element_data[i - 1];
-        element_data[l] = x.getR();
-        element_data[l] = x.getP();
-        element_data[l] = x.getS();
-        size += 1;
+        if (l < 0 || l > this.size) {
+            throw new IllegalArgumentException("l must be between 0 and " + this.size);
+        }
+        if (this.size == this.cards.length) {
+            this.expand();
+        }
+        for (int i = this.size; i > l; i--) {
+            this.cards[i] = this.cards[i - 1];
+        }
+        this.cards[l] = x;
+        this.size++;
     }
 
+    
     @Override
     public Card remove(int j) {
-        if (j < 0 || j >= size)
-            throw new IndexOutOfBoundsException("Location is outside the bounds of the array");
-        int temp = element_data[j];
-        for (int i = j; i < size - 1; i++)
-            element_data[i] = element_data[i + 1];
-        size -= 1;
-        return new Card(temp);
+        if (j < 0 || j >= this.size) {
+            throw new IllegalArgumentException("j must be between 0 and " + (this.size - 1));
+        }
+        Card c = this.cards[j];
+        for (int i = j; i < this.size - 1; i++) {
+            this.cards[i] = this.cards[i + 1];
+        }
+        this.size--;
+        return c;
     }
 
 
     @Override
     public void sort() {
-        int[] temp = new int[size];
-        System.arraycopy(element_data, 0, temp, 0, size);
-        merge_sort(temp, 0, size - 1);
-        System.arraycopy(temp, 0, element_data, 0, size);
+        if (this.size == 0) {
+            return;
+        }
+        this.cards = this.merge_sort(this.cards, 0, this.size - 1);
     }
 
 
+    private Card[] merge_sort(Card[] cards, int left, int right) {
+        if (left == right) {
+            return new Card[]{cards[left]};
+        }
+        int mid = (left + right) / 2;
+        Card[] left_arr = this.merge_sort(cards, left, mid);
+        Card[] right_arr = this.merge_sort(cards, mid + 1, right);
+        return this.merge(left_arr, right_arr);
+    }
+
+    private Card[] merge(Card[] left_arr, Card[] right_arr) {
+        Card[] temp = new Card[left_arr.length + right_arr.length];
+        int i = 0, j = 0, k = 0;
+        while (i < left_arr.length && j < right_arr.length) {
+            if (Cost(left_arr[i].getR(), left_arr[i].getP(), left_arr[i].getS()) <
+                    Cost(right_arr[j].getR(), right_arr[j].getP(), right_arr[j].getS())) {
+                temp[k] = left_arr[i];
+                i++;
+            } else {
+                temp[k] = right_arr[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < left_arr.length) {
+            temp[k] = left_arr[i];
+            i++;
+            k++;
+        }
+        while (j < right_arr.length) {
+            temp[k] = right_arr[j];
+            j++;
+            k++;
+        }
+        return temp;
+    }
+
+
+    @Override
     public void shuffle() {
         Random rand = new Random();
-        for (int i = 0; i < size * 5; i++) {
-            int a = rand.nextInt(size);
-            int b = rand.nextInt(size);
-            swap(a, b);
+        for (int i = 0; i < this.size * 5; i++) {
+            int x = rand.nextInt(this.size);
+            int y = rand.nextInt(this.size);
+            Card c = this.cards[x];
+            this.cards[x] = this.cards[y];
+            this.cards[y] = c;
         }
-    }
-
-
-    private boolean is_room() {
-        return size < element_data.length;
-    }
-
-    private void swap(int a, int b) {
-        int temp = element_data[a];
-        element_data[a] = element_data[b];
-        element_data[b] = temp;
-    }
-
-
-    public void mystery() {
-        int[] temp = new int[size];
-        System.arraycopy(element_data, 0, temp, 0, size);
-        merge_sort(temp, 0, size - 1);
-        reverse(temp);
-        System.arraycopy(temp, 0, element_data, 0, size);
     }
 
     @Override
     public void clear() {
-        size = 0;
+        this.size = 0;
     }
 
     @Override
     public void reverse() {
-        reverse(element_data);
-    }
-
-    private void reverse(int[] element_data) {
-        for (int i = 0; i < size / 2; i++) {
-            swap(i, size - i - 1);
+        for (int i = 0; i < this.size / 2; i++) {
+            Card c = this.cards[i];
+            this.cards[i] = this.cards[this.size - i - 1];
+            this.cards[this.size - i - 1] = c;
         }
     }
 
 
-    private void merge_sort(int[] arr, int start, int end) {
-        if (start < end) {
-            int mid = (start + end) / 2;
-            merge_sort(arr, start, mid);
-            merge_sort(arr, mid + 1, end);
-            merge(arr, start, mid, end);
-        }
+    private boolean isRoom() {
+        return this.size < this.cards.length;
     }
 
-    private void merge(int[] arr, int start, int mid, int end) {
-        int x = mid - start + 1;
-        int y = end - mid;
 
-        int[] left = new int[x];
-        int[] right = new int[y];
+    private void swap(int a, int b) {
+        Card c = this.cards[a];
+        this.cards[a] = this.cards[b];
+        this.cards[b] = c;
+    }
 
-        System.arraycopy(arr, start, left, 0, x);
-        System.arraycopy(arr, mid + 1, right, 0, y);
-
-        int i = 0, j = 0;
-        int k = start;
-        do {
-            if (left[i] <= right[j]) {
-                arr[k] = left[i];
-                i++;
-            } else {
-                arr[k] = right[j];
-                j++;
+    public void mystery() {
+        for (int i = 0; i < this.size; i++) {
+            for (int j = 0; j < this.size - 1; j++) {
+                if (this.cards[j].compareTo(this.cards[j + 1]) > 0) {
+                    this.swap(j, j + 1);
+                }
             }
-            k++;
-        } while (i < x && j < y);
-
-        while (i < x) {
-            arr[k] = left[i];
-            i++;
-            k++;
-        }
-
-        while (j < y) {
-            arr[k] = right[j];
-            j++;
-            k++;
         }
     }
 
     private void check_capacity(int capacity) {
-        if (capacity > element_data.length) {
+        if (capacity > cards.length) {
             throw new IllegalStateException("exceeded list capacity");
         }
     }
 
     private void check_index(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("index: " + index);
+            throw new IllegalArgumentException("index must be between 0 and " + (size - 1));
         }
     }
+
+
 }
