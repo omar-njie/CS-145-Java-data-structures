@@ -1,10 +1,6 @@
 package com.omar.data_structures.assignments.assignment_4;
 
-import com.omar.learn.comparable_interface.Car;
-
 import java.util.Random;
-
-import static com.omar.data_structures.assignments.assignment_4.Card.Cost;
 
 /**
  * @author Omar
@@ -25,7 +21,8 @@ public class CardArrayList implements CardList {
 
     public CardArrayList(int x) {
         if (x < 1)
-            throw new IllegalArgumentException("x must be greater than 0");
+            throw new IllegalArgumentException(
+                    "x must be greater than 0");
         this.cards = new Card[x];
         this.size = 0;
     }
@@ -33,20 +30,16 @@ public class CardArrayList implements CardList {
 
     private void expand() {
         Card[] temp = new Card[this.cards.length * 2];
-        for (int i = 0; i < this.cards.length; i++) {
-            temp[i] = this.cards[i];
-        }
+        System.arraycopy(this.cards, 0, temp, 0, this.cards.length);
         this.cards = temp;
     }
 
 
     @Override
     public String toString() {
-        if (this.size == 0) {
+        if (this.size == 0)
             return "[0: :" + this.size + "]";
-        }
-        // example: [<--: [2,3,4:55],[8,9,10:90],{{{1|1|2:37}},[4,5,6:82] -->4]
-        Card c = new Card();
+
         StringBuilder sb = new StringBuilder();
         sb.append("[<--: ");
         for (int i = 0; i < this.size; i++) {
@@ -67,21 +60,21 @@ public class CardArrayList implements CardList {
 
     @Override
     public void add(Card x) {
-        if (this.size == this.cards.length) {
+        if (this.size == this.cards.length)
             this.expand();
-        }
         this.cards[this.size] = x;
-        this.size++;
+        this.size += 1;
     }
 
 
     @Override
     public Card remove() {
         if (this.size == 0) {
-            throw new IllegalStateException("Cannot remove from an empty list");
+            throw new IllegalStateException(
+                    "Cannot remove from an empty list");
         }
         Card c = this.cards[this.size - 1];
-        this.size--;
+        this.size -= 1;
         return c;
     }
 
@@ -89,7 +82,9 @@ public class CardArrayList implements CardList {
     @Override
     public Card get(int x) {
         if (x < 0 || x >= this.size) {
-            throw new IllegalArgumentException("x must be between 0 and " + (this.size - 1));
+            throw new IllegalArgumentException(
+                    "x must be between 0 and " + (this.size - 1)
+            );
         }
         return this.cards[x];
     }
@@ -98,9 +93,8 @@ public class CardArrayList implements CardList {
     @Override
     public int indexOf(Card x) {
         for (int i = 0; i < this.size; i++) {
-            if (this.cards[i].equals(x)) {
+            if (this.cards[i].equals(x))
                 return i;
-            }
         }
         return -1;
     }
@@ -119,10 +113,10 @@ public class CardArrayList implements CardList {
             this.cards[i] = this.cards[i - 1];
         }
         this.cards[l] = x;
-        this.size++;
+        this.size += 1;
     }
 
-    
+
     @Override
     public Card remove(int j) {
         if (j < 0 || j >= this.size) {
@@ -132,57 +126,62 @@ public class CardArrayList implements CardList {
         for (int i = j; i < this.size - 1; i++) {
             this.cards[i] = this.cards[i + 1];
         }
-        this.size--;
+        this.size -= 1;
         return c;
     }
 
-
     @Override
     public void sort() {
-        if (this.size == 0) {
-            return;
+        Card[] temp = new Card[this.size];
+        System.arraycopy(this.cards, 0, temp, 0, this.size);
+        merge_sort(temp, 0, this.size - 1);
+        System.arraycopy(temp, 0, this.cards, 0, this.size);
+    }
+
+    private void merge_sort(Card[] cards, int start, int end) {
+        if (start < end) {
+            int mid = (start + end) / 2;
+            merge_sort(cards, start, mid);
+            merge_sort(cards, mid + 1, end);
+            merge(cards, start, mid, end);
         }
-        this.cards = this.merge_sort(this.cards, 0, this.size - 1);
     }
 
 
-    private Card[] merge_sort(Card[] cards, int left, int right) {
-        if (left == right) {
-            return new Card[]{cards[left]};
-        }
-        int mid = (left + right) / 2;
-        Card[] left_arr = this.merge_sort(cards, left, mid);
-        Card[] right_arr = this.merge_sort(cards, mid + 1, right);
-        return this.merge(left_arr, right_arr);
-    }
+    private void merge(Card[] cards, int start, int mid, int end) {
+        int x = mid - start + 1;
+        int y = end - mid;
 
-    private Card[] merge(Card[] left_arr, Card[] right_arr) {
-        Card[] temp = new Card[left_arr.length + right_arr.length];
-        int i = 0, j = 0, k = 0;
-        while (i < left_arr.length && j < right_arr.length) {
-            if (Cost(left_arr[i].getR(), left_arr[i].getP(), left_arr[i].getS()) <
-                    Cost(right_arr[j].getR(), right_arr[j].getP(), right_arr[j].getS())) {
-                temp[k] = left_arr[i];
+        Card[] left = new Card[x];
+        Card[] right = new Card[y];
+
+        System.arraycopy(cards, start, left, 0, x);
+        System.arraycopy(cards, mid + 1, right, 0, y);
+
+        int i = 0, j = 0, k = start;
+        do {
+            if (left[i].compareTo(right[j]) < 0) {
+                cards[k] = left[i];
                 i++;
             } else {
-                temp[k] = right_arr[j];
+                cards[k] = right[j];
                 j++;
             }
             k++;
-        }
-        while (i < left_arr.length) {
-            temp[k] = left_arr[i];
+        } while (i < x && j < y);
+
+        while (i < x) {
+            cards[k] = left[i];
             i++;
             k++;
         }
-        while (j < right_arr.length) {
-            temp[k] = right_arr[j];
+
+        while (j < y) {
+            cards[k] = right[j];
             j++;
             k++;
         }
-        return temp;
     }
-
 
     @Override
     public void shuffle() {
@@ -211,7 +210,7 @@ public class CardArrayList implements CardList {
     }
 
 
-    private boolean isRoom() {
+    private boolean is_room() {
         return this.size < this.cards.length;
     }
 
