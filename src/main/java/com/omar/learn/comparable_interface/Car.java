@@ -81,7 +81,7 @@ public class Car implements Comparable<Car> {
         System.out.println("round: " + Math.round(f) + " >> nearest integer");
         System.out.println("ceil: " + (int) Math.ceil(f) + " >> upward to the nearest integer");
         System.out.println("floor: " + (int) Math.floor(f) + " >> downward to the nearest integer");
-        System.out.println(Cost(1, 1, 1000));
+        System.out.println(Cost(52, 144, 739));
     }
 
     static int customPow(int base, int exp) {
