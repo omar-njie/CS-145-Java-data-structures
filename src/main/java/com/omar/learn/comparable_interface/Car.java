@@ -1,10 +1,9 @@
 package com.omar.learn.comparable_interface;
 
-import com.omar.data_structures.assignments.assignment_4.Card;
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.Random;
 
@@ -33,7 +32,7 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
-    public int compareTo(@NotNull Car o) {
+    public int compareTo(Car o) {
         if (this.getId() == o.getId()) {
             return 0;
         } else if (this.getId() > o.getId()) {
@@ -72,9 +71,9 @@ public class Car implements Comparable<Car> {
         System.out.println(result);
         int z = y.nextInt(6) + 1;
         System.out.println(z);
-        int r = 9;
-        int s = 90;
-        int p = 900;
+        int r = 52;
+        int s =  144;
+        int p = 739;
         int x = r + p + s;
         double f = 12 / (10 * ((Math.pow((double) r / (double) x, 5)) + (Math.pow((double) s / (double) x, 5)) + (Math.pow((double) p / (double) x, 5))));
         // [12/10 * ((R/X)^5 + (S/X)^5 + (P/X)^5)]
