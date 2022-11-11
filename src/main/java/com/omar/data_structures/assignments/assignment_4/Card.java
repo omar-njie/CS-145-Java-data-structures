@@ -3,8 +3,12 @@ package com.omar.data_structures.assignments.assignment_4;
 import java.util.Random;
 
 /**
+ * The Card class is responsible for generating values for R, P and S within the bounds of 1, 1000.
+ * This class also calculate the cost, and return the values of R, P, S and the calculated cost.
+ * The Card class implements the Comparable interface to compare the cost of two Cards.
+ *
  * @author Omar
- * @version 11/3/22
+ * @version 11.10.22
  */
 public class Card implements Comparable<Card> {
 
@@ -13,7 +17,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * Creates a Card object and sets random values for R, P and S
-     * within the constraints of [1, 1000].
+     * are within the constraints of [1, 1000].
      */
     public Card() {
         Random rand = new Random();
@@ -23,7 +27,6 @@ public class Card implements Comparable<Card> {
         R = rand.nextInt(high - low) + low + 1;
         P = rand.nextInt(high - low) + low + 1;
         S = rand.nextInt(high - low) + low + 1;
-
     }
 
 
@@ -34,7 +37,8 @@ public class Card implements Comparable<Card> {
      * @throws IllegalArgumentException if x is not within the constraints of [1, 1000].
      */
     public Card(int x) {
-        if (x < 1 || x > 1000) throw new IllegalArgumentException("x must be between 1 and 1000");
+        if (x < 1 || x > 1000)
+            throw new IllegalArgumentException("x must be between 1 and 1000");
         R = x;
         P = x;
         S = x;
@@ -47,10 +51,11 @@ public class Card implements Comparable<Card> {
      * @param R the value to set for R.
      * @param P the value to set for P.
      * @param S the value to set for S.
-     * @throws IllegalArgumentException if R, P or S is not within the constraints of [1, 1000].
+     * @throws IllegalArgumentException if R, P or S are not within the constraints of [1, 1000].
      */
     public Card(int R, int P, int S) {
-        if (R < 1 && P < 1 && S < 1 || R > 1000 && P > 1000 && S > 1000)
+        if (R < 1 && P < 1 && S < 1 ||
+                R > 1000 && P > 1000 && S > 1000)
             throw new IllegalArgumentException("R, P, and S must be between 1 and 1000");
         this.R = R;
         this.P = P;
@@ -69,7 +74,9 @@ public class Card implements Comparable<Card> {
      */
     public static int Cost(int R, int P, int S) {
         int X = R + P + S;
-        double cost = 12 / (10 * ((Math.pow((double) R / (double) X, 5)) + (Math.pow((double) P / (double) X, 5)) + (Math.pow((double) S / (double) X, 5))));
+        double cost = 12 / (10 * ((Math.pow((double) R / (double) X, 5))
+                + (Math.pow((double) P / (double) X, 5))
+                + (Math.pow((double) S / (double) X, 5))));
         return ((int) Math.ceil(cost));
     }
 
@@ -116,12 +123,14 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
-        return "[" + this.R + "," + this.P + "," + this.S + "::" + this.getCost() + "]";
+        return "[" + this.R + "," + this.P + "," + this.S
+                + "::" + this.getCost() + "]";
     }
 
 
     /**
      * <p>Find the smallest R,P amd S and move it closer to 0 by 5.</p>
+     * @see Math#min(int a, int b)
      */
     public void weaken() {
         int smallest = Math.min(Math.min(this.R, this.P), this.S);
@@ -137,8 +146,13 @@ public class Card implements Comparable<Card> {
 
     /**
      * <p>Find the smallest R,P and move it closer to 1000 by 5.</p>
+     * @see Math#min(int a, int b)
      */
     public void boost() {
+        // do nothing if they are all the same
+        if (this.R == this.P && this.P == this.S)
+            return;
+
         int smallest = Math.min(Math.min(this.R, this.P), this.S);
         if (smallest == this.R) {
             this.R += 5;
@@ -146,10 +160,6 @@ public class Card implements Comparable<Card> {
             this.P += 5;
         } else {
             this.S += 5;
-        }
-
-        if (this.R == this.P && this.P == this.S) {
-            return;
         }
     }
 
@@ -165,8 +175,10 @@ public class Card implements Comparable<Card> {
      */
     public int compareTo(Card o) {
         if (Cost(this.R, this.S, this.P) == Cost(o.R, o.S, o.P)) {
-            return Integer.compare(this.R + this.S + this.P, o.R + o.S + o.P);
-        } else if (Cost(this.R, this.S, this.P) > Cost(o.R, o.S, o.P)) {
+            return Integer.compare(this.R + this.S + this.P,
+                    o.R + o.S + o.P);
+        } else if (Cost(this.R, this.S, this.P) >
+                Cost(o.R, o.S, o.P)) {
             return 1;
         } else {
             return -1;
