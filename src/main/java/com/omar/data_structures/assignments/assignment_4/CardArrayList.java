@@ -24,7 +24,7 @@ import java.util.Random;
  * and {@link CardArrayList#check_capacity(int)},
  * {@link CardArrayList#check_index(int)}.
  * It also implements the merge sort algorithm; {@link CardArrayList#sort()},
- * {@link CardArrayList#merge_sort(Card[], int, int)},
+ * {@link CardArrayList#merge_sort(Card[], int, int)}, 
  * {@link CardArrayList#merge(Card[], int, int, int)} to sort the list from least to greatest,
  * and a {@link CardArrayList#mystery()} method to reverse the previous sorted list from greatest to least.
  *
