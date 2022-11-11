@@ -7,6 +7,7 @@ package com.omar.data_structures.assignments.assignment_4;
  * with this representation for premium cards {R/P/S::Cost} instead of this representation
  * [R,P,S::Cost] for normal cards.
  *
+ * @see Card
  * @author Omar
  * @version 11.10.22
  */
