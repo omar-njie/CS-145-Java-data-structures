@@ -9,8 +9,8 @@ import javax.swing.event.*;
 import java.util.*;
 
 public class CritterFrame extends JFrame {
-    private CritterModel myModel;
-    private CritterPanel myPicture;
+    private final CritterModel myModel;
+    private final CritterPanel myPicture;
     private javax.swing.Timer myTimer;
     private JButton[] counts;
     private JButton countButton;
@@ -126,7 +126,7 @@ public class CritterFrame extends JFrame {
         int maxI = 0;
         for (Map.Entry<String, Integer> entry: myModel.getCounts()) {
             String s = String.format("%s =%4d", entry.getKey(),
-                                     (int) entry.getValue());
+                    entry.getValue());
             counts[i].setText(s);
             counts[i].setForeground(Color.BLACK);
             if (entry.getValue() > max) {

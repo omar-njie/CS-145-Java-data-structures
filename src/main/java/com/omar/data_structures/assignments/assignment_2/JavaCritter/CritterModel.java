@@ -12,11 +12,11 @@ public class CritterModel {
     // 1.0 means 100% advantage)
     public static final double HOP_ADVANTAGE = 0.2; // 20% advantage
 
-    private int height;
-    private int width;
-    private Critter[][] grid;
-    private Map<Critter, PrivateData> info;
-    private SortedMap<String, Integer>critterCount;
+    private final int height;
+    private final int width;
+    private final Critter[][] grid;
+    private final Map<Critter, PrivateData> info;
+    private final SortedMap<String, Integer>critterCount;
     private boolean debugView;
     private int simulationCount;
     private static boolean created;
@@ -291,9 +291,9 @@ public class CritterModel {
 
     // an object used to query a critter's state (neighbors, direction)
     private static class Info implements CritterInfo {
-        private Critter.Neighbor[] neighbors;
-        private Critter.Direction direction;
-        private Critter.Direction[] neighborDirections;
+        private final Critter.Neighbor[] neighbors;
+        private final Critter.Direction direction;
+        private final Critter.Direction[] neighborDirections;
 
         public Info(Critter.Neighbor[] neighbors, Critter.Direction d,
                     Critter.Direction[] neighborDirections) {

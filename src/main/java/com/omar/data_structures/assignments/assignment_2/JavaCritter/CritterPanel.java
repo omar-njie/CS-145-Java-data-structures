@@ -7,8 +7,8 @@ import java.awt.*;
 import java.util.*;
 
 public class CritterPanel extends JPanel {
-    private CritterModel myModel;
-    private Font myFont;
+    private final CritterModel myModel;
+    private final Font myFont;
     private static boolean created;
 
     public static final int FONT_SIZE = 12;

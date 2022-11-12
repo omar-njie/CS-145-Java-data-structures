@@ -28,17 +28,17 @@ package com.omar.data_structures.assignments.assignment_2.JavaCritter;
 import java.awt.*;
 
 public class Critter {
-    public static enum Neighbor {
+    public enum Neighbor {
         WALL, EMPTY, SAME, OTHER
-    };
+    }
 
-    public static enum Action {
+    public enum Action {
         HOP, LEFT, RIGHT, INFECT
-    };
+    }
 
-    public static enum Direction {
+    public enum Direction {
         NORTH, SOUTH, EAST, WEST
-    };
+    }
 
     // This method should be overriden (default action is turning left)
     public Action getMove(CritterInfo info) {
