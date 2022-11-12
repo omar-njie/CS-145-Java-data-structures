@@ -32,6 +32,8 @@ import java.util.Random;
  * @author Omar
  * @version 11.10.22
  */
+/*
+
 public class CardArrayList implements CardList {
 
     public static final int DEFAULT_CAPACITY = 10;
@@ -39,20 +41,24 @@ public class CardArrayList implements CardList {
     private int size;
 
 
-    /**
+    */
+/**
      * Creates a CardArrayList object and sets the size to 0.
-     */
+     *//*
+
     public CardArrayList() {
         this.card_list_data = new Card[DEFAULT_CAPACITY];
         this.size = 0;
     }
 
 
-    /**
+    */
+/**
      * Creates a CardArrayList object and sets the size to 0.
      *
      * @param x the initial size of the CardArrayList.
-     */
+     *//*
+
     public CardArrayList(int x) {
         if (x < 1) throw new IllegalArgumentException("x must be greater than 0");
         this.card_list_data = new Card[x];
@@ -81,19 +87,23 @@ public class CardArrayList implements CardList {
         return sb.toString();
     }
 
-    /**
+    */
+/**
      * @return the size of the list as an integer
-     */
+     *//*
+
     public int size() {
         return this.size;
     }
 
 
-    /**
+    */
+/**
      * This method should add a card to the end of the list in the first available spot.
      *
      * @param x the Card object to be added.
-     */
+     *//*
+
     public void add(Card x) {
         if (!(is_room())) expand();
         this.card_list_data[this.size] = x;
@@ -101,12 +111,14 @@ public class CardArrayList implements CardList {
     }
 
 
-    /**
+    */
+/**
      * Remove the last element from the list.
      *
      * @return The card object removed from the list.
      * @throws IllegalStateException if the list is empty.
-     */
+     *//*
+
     public Card remove() {
         if (this.size == 0) throw new IllegalStateException("Cannot remove from an empty list");
 
@@ -115,25 +127,29 @@ public class CardArrayList implements CardList {
         return c;
     }
 
-    /**
+    */
+/**
      * Return the i'th last element from the list.
      *
      * @param x The index of the desired card.
      * @return The card object located in index x from the list.
      * @throws IndexOutOfBoundsException if x {@code (x < 0 || x >= this.size) {}}
      *                                   is outside the current list.
-     */
+     *//*
+
     public Card get(int x) {
         check_index(x);
         return this.card_list_data[x];
     }
 
-    /**
+    */
+/**
      * Returns the index of specified Card object
      *
      * @param x Card object
      * @return index of Card otherwise -1 if not found
-     */
+     *//*
+
     public int indexOf(Card x) {
         for (int i = 0; i < this.size; i++) {
             if (this.card_list_data[i].equals(x)) return i;
@@ -141,14 +157,16 @@ public class CardArrayList implements CardList {
         return -1;
     }
 
-    /**
+    */
+/**
      * Add a card to the indicated location
      * sliding all other elements over one.
      *
      * @param l the desired index of the card to be added.
      * @param x the Card object to be added.
      * @throws IndexOutOfBoundsException if l {@code (l < 0 || l >= this.size) {}} is outside the current list.
-     */
+     *//*
+
     public void add(int l, Card x) {
         check_capacity(size + 1);
         check_index(l);
@@ -161,14 +179,16 @@ public class CardArrayList implements CardList {
         this.size += 1;
     }
 
-    /**
+    */
+/**
      * Remove the identified card from the list and return it.
      *
      * @param j the index of the card to be removed.
      * @return The card object removed from the list.
      * @throws IndexOutOfBoundsException if j {@code (j < 0 || j >= this.size) {}}
      *                                   is outside the current list.
-     */
+     *//*
+
     public Card remove(int j) {
         check_index(j);
 
@@ -180,11 +200,13 @@ public class CardArrayList implements CardList {
         return c;
     }
 
-    /**
+    */
+/**
      * Sort the items in the list from smallest to largest
      *
      * @see System#arraycopy(Object, int, Object, int, int)
-     */
+     *//*
+
     public void sort() {
         Card[] temp = new Card[this.size];
         System.arraycopy(this.card_list_data, 0, temp, 0, this.size);
@@ -240,9 +262,11 @@ public class CardArrayList implements CardList {
     }
 
 
-    /**
+    */
+/**
      * Shuffle the items in the list.
-     */
+     *//*
+
     public void shuffle() {
         Random rand = new Random();
         for (int i = 0; i < this.size * 5; i++) {
@@ -254,18 +278,22 @@ public class CardArrayList implements CardList {
         }
     }
 
-    /**
+    */
+/**
      * Empty the list of all items.
-     */
+     *//*
+
     public void clear() {
         this.size = 0;
     }
 
-    /**
+    */
+/**
      * Reverse the list from the first to last element.
      *
      * @see CardArrayList#swap(int a, int b)
-     */
+     *//*
+
     public void reverse() {
         for (int i = 0; i < this.size / 2; i++) {
             swap(i, this.size - i - 1);
@@ -286,9 +314,11 @@ public class CardArrayList implements CardList {
     }
 
 
-    /**
+    */
+/**
      * <p>Get the previous sorted cards form greatest to smallest.</p>
-     */
+     *//*
+
     public void mystery() {
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size - 1; j++) {
@@ -315,3 +345,4 @@ public class CardArrayList implements CardList {
         }
     }
 }
+*/

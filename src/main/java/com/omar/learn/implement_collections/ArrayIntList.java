@@ -6,7 +6,7 @@ package com.omar.learn.implement_collections;
  */
 public class ArrayIntList {
 
-    private int[] elementData;
+    private final int[] elementData;
     private int size;
     public static final int DEFAULT_CAPACITY = 100;
 

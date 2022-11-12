@@ -18,7 +18,7 @@ public class Main {
 
     public static void printStars(int n) {
         if (n == 0) {
-            System.out.println("");
+            System.out.println();
         } else {
             System.out.print("*");
             printStars(n - 1);

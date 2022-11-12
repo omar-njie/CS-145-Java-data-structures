@@ -1,9 +1,9 @@
 package com.omar.learn.Army_Stuff;
 
 public interface ArmyDude {
-    public void printResult();
+    void printResult();
 
-    public boolean hit();
+    boolean hit();
 
-    public int damage();
+    int damage();
 }

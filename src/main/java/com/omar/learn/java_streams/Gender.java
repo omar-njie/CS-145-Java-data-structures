@@ -6,5 +6,5 @@ package com.omar.learn.java_streams;
  */
 public enum Gender {
     MALE,
-    FEMALE;
+    FEMALE
 }
