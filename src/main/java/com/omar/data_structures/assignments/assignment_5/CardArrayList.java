@@ -54,7 +54,8 @@ public class CardArrayList implements CardList {
      * @param x the initial size of the CardArrayList.
      */
     public CardArrayList(int x) {
-        if (x < 1) throw new IllegalArgumentException("x must be greater than 0");
+        if (x < 1)
+            throw new IllegalArgumentException("x must be greater than 0");
         this.card_list_data = new Card[x];
         this.size = 0;
     }
@@ -69,13 +70,15 @@ public class CardArrayList implements CardList {
 
     @Override
     public String toString() {
-        if (this.size == 0) return "[0: :" + this.size + "]";
+        if (this.size == 0)
+            return "[0: :" + this.size + "]";
 
         StringBuilder sb = new StringBuilder();
         sb.append("[<--: ");
         for (int i = 0; i < this.size; i++) {
             sb.append(this.card_list_data[i].toString());
-            if (i != this.size - 1) sb.append(",");
+            if (i != this.size - 1)
+                sb.append(",");
         }
         sb.append(" -->").append(this.size).append("]");
         return sb.toString();
@@ -108,7 +111,8 @@ public class CardArrayList implements CardList {
      * @throws IllegalStateException if the list is empty.
      */
     public Card remove() {
-        if (this.size == 0) throw new IllegalStateException("Cannot remove from an empty list");
+        if (this.size == 0)
+            throw new IllegalStateException("Cannot remove from an empty list");
 
         Card c = this.card_list_data[this.size - 1];
         this.size -= 1;
@@ -136,7 +140,8 @@ public class CardArrayList implements CardList {
      */
     public int indexOf(Card x) {
         for (int i = 0; i < this.size; i++) {
-            if (this.card_list_data[i].equals(x)) return i;
+            if (this.card_list_data[i].equals(x))
+                return i;
         }
         return -1;
     }
