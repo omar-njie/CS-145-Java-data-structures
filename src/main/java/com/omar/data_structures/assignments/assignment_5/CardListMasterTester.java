@@ -194,8 +194,10 @@ public class CardListMasterTester {
         masterList1.sort();
         SO.print("Success Sorted : ");
         SO.println(masterList1);
-        if (testSort()) SO.print("Success Sorted :  Correct");
-        else SO.print("Failed  Sorted :  InCorrect");
+        if (testSort())
+            SO.print("Success Sorted :  Correct");
+        else
+            SO.print("Failed  Sorted :  InCorrect");
     }
 
     private boolean testSort() {
