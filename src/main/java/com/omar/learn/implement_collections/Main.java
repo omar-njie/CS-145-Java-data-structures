@@ -58,7 +58,5 @@ public class Main {
         System.out.println("list3 after removing element 1: " + list3);
         list3.add(0, 10);
         System.out.println("list3 after adding 10 at index 0: " + list3);
-
     }
-
 }
