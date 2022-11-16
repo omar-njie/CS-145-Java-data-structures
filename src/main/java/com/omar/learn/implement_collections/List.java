@@ -19,4 +19,5 @@ public interface List<E extends Iterator> {
     void remove(int index);
     void set(int index, E value);
     void clear();
+
 }
