@@ -1,4 +1,4 @@
-package com.omar.learn.implement_collections;
+package com.omar.learn.implement_collections.array_list;
 
 /**
  * @author Omar
@@ -83,12 +83,12 @@ public class ArrayIntList {
         if (size == 0) {
             return "[]";
         } else {
-            String result = "[" + elementData[0];
+            StringBuilder result = new StringBuilder("[" + elementData[0]);
             for (int i = 1; i < size; i++) {
-                result += ", " + elementData[i];
+                result.append(", ").append(elementData[i]);
             }
-            result += "]";
-            return result;
+            result.append("]");
+            return result.toString();
         }
     }
 

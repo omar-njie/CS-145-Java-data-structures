@@ -1,4 +1,4 @@
-package com.omar.learn.linked_lists;
+package com.omar.learn.implement_collections.linked_lists;
 
 /**
  * @author Omar
