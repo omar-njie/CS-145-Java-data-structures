@@ -97,7 +97,8 @@ public class RectangleLL<E extends Comparable<E>> {
             size++;
         } else { // Anywhere else in the list
             RectNode<E> current = head;
-            for (int i = 1; i < loc; i++) current = current.next;
+            for (int i = 1; i < loc; i++)
+                current = current.next;
             RectNode<E> temp = new RectNode<E>(x);
             temp.next = current.next;
             current.next = temp;
