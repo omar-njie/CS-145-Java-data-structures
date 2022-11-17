@@ -73,15 +73,36 @@ public class CardLinkedList implements CardList {
 
 
    public Card remove() {
-        if (front == null)
+        /*if (front == null)
             return null;
         CardNode<Card> current = front;
         front = front.next;
         size--;
-        return current.item;
+        return current.item;*/
+       if (front == null)
+           throw new IndexOutOfBoundsException("The list is empty");
+       CardNode<Card> temp = front;
+       if (size == 1) {
+           Card c = front.item;
+           clear();
+           return c;
+       } else if (size == 2) {
+           Card c = temp.next.item;
+           temp.next = null;
+           size--;
+           return c;
+       } else {
+           while (temp.next.next != null) {
+               temp = temp.next;
+           }
+           Card c = temp.next.item;
+           temp.next = null;
+           size--;
+           return c;
+       }
    }
 
-    public Card remove(int j) {
+    /*public Card remove(int j) {
         check_index(j);
         if (j == 0) {
             CardNode<Card> current = front;
@@ -95,7 +116,34 @@ public class CardLinkedList implements CardList {
             size--;
             return temp.item;
         }
-    }
+    }*/
+
+    public Card remove(int loc) {
+        if (front == null) {
+            throw new IndexOutOfBoundsException("The list is empty");
+        } else if (loc < 0) {
+            throw new IndexOutOfBoundsException("The index is negative");
+        } else if (loc > size) {
+            throw new IndexOutOfBoundsException("The index is greater than the size of the list");
+        } else if (loc == size) {
+            return remove();
+        } else if (loc == 0) {
+            Card c = front.item;
+            front = front.next;
+            size--;
+            return c;
+        } else {
+            CardNode<Card> current = front;
+            for (int i = 0; i < loc; i++) {
+                current = current.next;
+            }
+            Card c = current.next.item;
+            CardNode<Card> temp = current.next.next;
+            current.next = temp;
+            size--;
+            return c;
+            }
+        }
 
     public Card get(int x) {
         check_index(x);
@@ -103,13 +151,22 @@ public class CardLinkedList implements CardList {
     }
 
     public int indexOf(Card x) {
-        CardNode<Card> current = front;
+        /*CardNode<Card> current = front;
         for (int i = 0; i < this.size; i++) {
             if (current.item.equals(x))
                 return i;
             current = current.next;
         }
-        return -1;
+        return -1;*/
+        int index = 0;
+        CardNode<Card> current = front;
+        while (current.next != null && !current.item.equals(x)) {
+            current = current.next;
+            index++;
+        }
+        if (index == this.size -1 && !current.item.equals(x))
+            return -1;
+        return index;
     }
 
     public void sort() {
@@ -117,16 +174,16 @@ public class CardLinkedList implements CardList {
             return;
         CardLinkedList left = new CardLinkedList();
         CardLinkedList right = new CardLinkedList();
-        int half = size / 2;
+        int half = this.size / 2;
         for (int i = 0; i < half; i++)
             left.add(this.remove());
-        while (size > 0)
+        while (this.size > 0)
             right.add(this.remove());
         left.sort();
         right.sort();
         merge(left, right);
-
     }
+
 
     private void sort(CardLinkedList x) {
         if (x.size <= 1)
@@ -198,12 +255,12 @@ public class CardLinkedList implements CardList {
     }
 
     private static class CardNode<E> {
-        E item;
-        CardNode<E> next;
+        public E item;
+        public CardNode<E> next;
 
         CardNode(E item) {
             this.item = item;
-            this.next = null;
+            next = null;
         }
 
         CardNode(E item, CardNode<E> next) {
