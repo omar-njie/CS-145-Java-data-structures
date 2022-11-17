@@ -50,6 +50,7 @@ public class CardListMasterTester {
 
     public void stage1() {
         // STAGE 1
+        SO.println("Stage 1");
         // Can we add to a master list and print it out?
         //CardList masterList1 = new CardArrayList();
         masterList1 = new CardLinkedList();
@@ -62,6 +63,8 @@ public class CardListMasterTester {
 
     public void stage2() {
         // STAGE 2
+        SO.println();
+        SO.println("Stage 2");
         // Can we add in other Locations?
         masterList1.add(0, new Card(1));
         SO.print("Add front      : ");
@@ -75,6 +78,8 @@ public class CardListMasterTester {
 
     public void stage3() {
         // STAGE 3
+        SO.println();
+        SO.println("Stage 3");
         // can we add more cards
 
         masterList1.add(2, new Card(100));
@@ -87,6 +92,8 @@ public class CardListMasterTester {
 
     public void stage4() {
         // STAGE 4
+        SO.println();
+        SO.println("Stage 3");
         // Can we Remove the end value
         masterList1.remove();
         SO.print("After A Remove : ");
@@ -95,6 +102,8 @@ public class CardListMasterTester {
 
     public void stage5() {
         // STAGE 5
+        SO.println();
+        SO.println("Stage 5");
         // Does remove return the removed value?
 
         SO.println("Returned Card  : ");
@@ -106,6 +115,8 @@ public class CardListMasterTester {
 
     public void stage6() {
         // STAGE 6
+        SO.println();
+        SO.println("Stage 6");
         // Did it remove from the middle
         // And return the value removed?
         Card tmp = masterList1.remove(2);
@@ -118,6 +129,8 @@ public class CardListMasterTester {
 
     public void stage7() {
         // STAGE 7
+        SO.println();
+        SO.println("Stage 7");
         // Did it remove from the front
         // And return the value removed?
         Card tmp = masterList1.remove(0);
@@ -130,6 +143,8 @@ public class CardListMasterTester {
 
     public void stage8() {
         // STAGE 8
+        SO.println();
+        SO.println("Stage 8");
         // Did get work correctly?
         SO.print("Get Values     : ");
         SO.println(masterList1.get(1) + " : " + masterList1.get(3));
@@ -152,6 +167,8 @@ public class CardListMasterTester {
     // STAGE 9
     // IndexOF
     public void stage9() {
+        SO.println();
+        SO.println("Stage 9");
         SO.print("Found Success=4: ");
         SO.println(masterList1.indexOf(new Card(300)));
         SO.print("Found Success=3: ");
@@ -162,6 +179,8 @@ public class CardListMasterTester {
 
     public void stage10() {
         // STAGE 10
+        SO.println();
+        SO.println("Stage 10");
         // Does shuffle work?
         SO.print("Before shuffle : ");
         SO.println(masterList1);
@@ -175,6 +194,8 @@ public class CardListMasterTester {
 
     public void stage11() {
         // STAGE 11
+        SO.println();
+        SO.println("Stage 11");
         // Does Clear Work?
         masterList1.clear();
         SO.print("After Clear    : ");
@@ -183,6 +204,8 @@ public class CardListMasterTester {
 
     public void stage12() {
         // STAGE 12
+        SO.println();
+        SO.println("Stage 12");
         // Create a large list
         // And check that sort works.
 
@@ -195,7 +218,7 @@ public class CardListMasterTester {
         SO.print("Success Sorted : ");
         SO.println(masterList1);
         if (testSort())
-            SO.print("Success Sorted :  Correct");
+            SO.print("Success Sorted : Correct\n");
         else
             SO.print("Failed  Sorted :  InCorrect");
     }
@@ -209,11 +232,11 @@ public class CardListMasterTester {
 
     public void stage13() {
         // STAGE 13
+        SO.println();
+        SO.println("Stage 13");
         // Create a list
         // And check that reverse works.
-
         masterList1.reverse();
-        SO.println();
         SO.print("Reversed Set  : ");
         SO.println(masterList1);
     }
@@ -225,6 +248,8 @@ public class CardListMasterTester {
 
     public void stage101() {
         // STAGE 12
+        SO.println();
+        SO.println("Stage 101");
         // Create a large list and Compare the Two
 
         CardList masterLL = new CardLinkedList();
@@ -256,6 +281,8 @@ public class CardListMasterTester {
 
     public void stage102() {
         // STAGE 13
+        SO.println();
+        SO.println("Stage 102");
         // Create a large list and Compare the Two
 
         CardList masterLL = new CardLinkedList();
@@ -287,6 +314,8 @@ public class CardListMasterTester {
 
     public void stage103() {
         // STAGE 14
+        SO.println();
+        SO.println("Stage 103");
         // Create a large list and Compare the Two
 
         CardList masterLL = new CardLinkedList();
@@ -322,6 +351,8 @@ public class CardListMasterTester {
 
     public void stage104() {
         // STAGE 15
+        SO.println();
+        SO.println("Stage 104");
         // Create a large list and Compare the Two
 
         CardList masterLL = new CardLinkedList();
@@ -357,6 +388,8 @@ public class CardListMasterTester {
 
     public void stage105() {
         // STAGE 16
+        SO.println();
+        SO.println("Stage 105");
         // Adding to the middle of a List
 
         CardList masterLL = new CardLinkedList();
