@@ -176,9 +176,9 @@ public class CardLinkedList implements CardList {
         CardLinkedList right = new CardLinkedList();
         int half = this.size / 2;
         for (int i = 0; i < half; i++)
-            left.add(this.remove());
+            left.add(this.remove(0));
         while (this.size > 0)
-            right.add(this.remove());
+            right.add(this.remove(0));
         left.sort();
         right.sort();
         merge(left, right);
@@ -192,9 +192,9 @@ public class CardLinkedList implements CardList {
         CardLinkedList right = new CardLinkedList();
         int half = x.size / 2;
         for (int i = 0; i < half; i++)
-            left.add(x.remove());
+            left.add(x.remove(0));
         while (x.size > 0)
-            right.add(x.remove());
+            right.add(x.remove(0));
         sort(left);
         sort(right);
         merge(left, right);
@@ -203,13 +203,13 @@ public class CardLinkedList implements CardList {
     private void merge(CardLinkedList left, CardLinkedList right) {
         while (left.size() + right.size() > 0) {
             if (left.size() == 0)
-                this.add(right.remove());
+                this.add(right.remove(0));
             else if (right.size() == 0)
-                this.add(left.remove());
+                this.add(left.remove(0));
             else if (left.front.item.compareTo(right.front.item) < 0)
-                this.add(left.remove());
+                this.add(left.remove(0));
             else
-                this.add(right.remove());
+                this.add(right.remove(0));
         }
     }
 
@@ -244,7 +244,7 @@ public class CardLinkedList implements CardList {
     public void reverse() {
         Stack<Card> stack = new Stack<Card>();
         while (this.size > 0)
-            stack.push(this.remove());
+            stack.push(this.remove(0));
         while (!(stack.isEmpty()))
             this.add(stack.pop());
     }
