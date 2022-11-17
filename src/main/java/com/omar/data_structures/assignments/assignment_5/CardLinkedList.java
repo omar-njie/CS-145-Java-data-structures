@@ -9,8 +9,6 @@ import java.util.Stack;
  */
 public class CardLinkedList implements CardList {
 
-    // this is the test from GitHub code spaces
-
     private CardNode<Card> front;
     private int size;
 
@@ -22,8 +20,9 @@ public class CardLinkedList implements CardList {
 
     private CardNode<Card> nodeAt(int index) {
         CardNode<Card> current = front;
-        for (int i = 0; i < index; i++)
+        for (int i = 0; i < index; i++) {
             current = current.next;
+        }
         return current;
     }
 
@@ -45,7 +44,7 @@ public class CardLinkedList implements CardList {
     }
 
     public int size() {
-        return size;
+        return this.size;
     }
 
     public void add(Card c) {
@@ -74,27 +73,28 @@ public class CardLinkedList implements CardList {
 
 
    public Card remove() {
-       if (front == null)
-           throw new IndexOutOfBoundsException();
-       Card result = front.item;
-       front = front.next;
-       size--;
-       return result;
+        if (front == null)
+            return null;
+        CardNode<Card> current = front;
+        front = front.next;
+        size--;
+        return current.item;
    }
 
     public Card remove(int j) {
         check_index(j);
-        Card result;
         if (j == 0) {
-            result = front.item;
+            CardNode<Card> current = front;
             front = front.next;
+            size--;
+            return current.item;
         } else {
             CardNode<Card> current = nodeAt(j - 1);
-            result = current.next.item;
+            CardNode<Card> temp = current.next;
             current.next = current.next.next;
+            size--;
+            return temp.item;
         }
-        size--;
-        return result;
     }
 
     public Card get(int x) {
@@ -104,7 +104,7 @@ public class CardLinkedList implements CardList {
 
     public int indexOf(Card x) {
         CardNode<Card> current = front;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < this.size; i++) {
             if (current.item.equals(x))
                 return i;
             current = current.next;

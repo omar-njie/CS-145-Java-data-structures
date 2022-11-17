@@ -53,7 +53,7 @@ public class Main {
         System.out.println("element 0 of list3: " + list3.get(0));
         System.out.println("element 1 of list4: " + list4.get(1));
         System.out.println("index of 3 in list3: " + list3.indexOf(3));
-        System.out.println("index of -5 in list4: " + list4.indexOf(-5));
+        System.out.println("index of -9 in list4: " + list4.indexOf(-9));
         list3.remove(1);
         System.out.println("list3 after removing element 1: " + list3);
         list3.add(0, 10);
