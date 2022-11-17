@@ -15,7 +15,7 @@ public class CardLinkedList implements CardList {
 
     public CardLinkedList() {
         front = null;
-        size = 0;
+        this.size = 0;
     }
 
     private CardNode<Card> nodeAt(int index) {
