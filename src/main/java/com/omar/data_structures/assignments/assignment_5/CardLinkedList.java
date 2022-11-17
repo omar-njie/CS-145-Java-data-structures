@@ -1,8 +1,5 @@
 package com.omar.data_structures.assignments.assignment_5;
 
-import com.omar.learn.generics.Car;
-import com.omar.learn.implement_collections.linked_lists.ListNodeEx;
-
 import java.util.Random;
 import java.util.Stack;
 
@@ -36,7 +33,7 @@ public class CardLinkedList implements CardList {
         sb.append("[0 | ");
         CardNode<Card> current = front;
         while (current != null) {
-            sb.append(current.data.toString());
+            sb.append(current.item.toString());
             if (current.next != null)
                 sb.append(",");
             current = current.next;
@@ -77,7 +74,7 @@ public class CardLinkedList implements CardList {
    public Card remove() {
        if (front == null)
            throw new IndexOutOfBoundsException();
-       Card result = front.data;
+       Card result = front.item;
        front = front.next;
        size--;
        return result;
@@ -87,11 +84,11 @@ public class CardLinkedList implements CardList {
         check_index(j);
         Card result;
         if (j == 0) {
-            result = front.data;
+            result = front.item;
             front = front.next;
         } else {
             CardNode<Card> current = nodeAt(j - 1);
-            result = current.next.data;
+            result = current.next.item;
             current.next = current.next.next;
         }
         size--;
@@ -100,13 +97,13 @@ public class CardLinkedList implements CardList {
 
     public Card get(int x) {
         check_index(x);
-        return nodeAt(x).data;
+        return nodeAt(x).item;
     }
 
     public int indexOf(Card x) {
         CardNode<Card> current = front;
         for (int i = 0; i < size; i++) {
-            if (current.data.equals(x))
+            if (current.item.equals(x))
                 return i;
             current = current.next;
         }
@@ -150,7 +147,7 @@ public class CardLinkedList implements CardList {
                 this.add(right.remove());
             else if (right.size() == 0)
                 this.add(left.remove());
-            else if (left.front.data.compareTo(right.front.data) < 0)
+            else if (left.front.item.compareTo(right.front.item) < 0)
                 this.add(left.remove());
             else
                 this.add(right.remove());
@@ -179,9 +176,9 @@ public class CardLinkedList implements CardList {
             current = current.next;
         for (int i = 0; i < b; i++)
             current2 = current2.next;
-        Card temp = current.data;
-        current.data = current2.data;
-        current2.data = temp;
+        Card temp = current.item;
+        current.item = current2.item;
+        current2.item = temp;
     }
 
 
@@ -195,21 +192,20 @@ public class CardLinkedList implements CardList {
 
     private void check_index(int index) {
         if (index < 0 || index > this.size)
-            throw new IndexOutOfBoundsException("Index" + index);
+            throw new IndexOutOfBoundsException("Index " + index);
     }
 
     private static class CardNode<E> {
-        public E data;
-        public CardNode<E> next;
+        E item;
+        CardNode<E> next;
 
-
-        public CardNode(E data) {
-            this.data = data;
+        CardNode(E item) {
+            this.item = item;
             this.next = null;
         }
 
-        public CardNode(E data, CardNode<E> next) {
-            this.data = data;
+        CardNode(E item, CardNode<E> next) {
+            this.item = item;
             this.next = next;
         }
     }
