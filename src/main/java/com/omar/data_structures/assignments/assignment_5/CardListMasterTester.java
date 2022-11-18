@@ -428,8 +428,5 @@ public class CardListMasterTester {
         SO.println("Time to add 5000 elements to a 10000 list, always in the middle");
         SO.printf("Time to empty the Array List  = %d milliseconds%n", timeA);
         SO.printf("Time to empty the Linked List = %d milliseconds%n", timeB);
-
     }
-
-
 }
