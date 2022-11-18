@@ -1,8 +1,6 @@
 package com.omar.data_structures.assignments.assignment_5;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * CS 145 - Part B
