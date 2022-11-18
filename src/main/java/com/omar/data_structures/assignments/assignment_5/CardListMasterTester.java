@@ -171,11 +171,11 @@ public class CardListMasterTester {
     public void stage9() {
         SO.println();
         SO.println("Stage 9");
-        SO.print("Found Success=4: ");
+        SO.print("Found Success(4): ");
         SO.println(masterList1.indexOf(new Card(300)));
-        SO.print("Found Success=3: ");
+        SO.print("Found Success(3): ");
         SO.println(masterList1.indexOf(new Card(505, 600, 700)));
-        SO.print("Found Failed=-1: ");
+        SO.print("Found Failed(-1): ");
         SO.println(masterList1.indexOf(new Card(1000)));
     }
 
@@ -241,6 +241,17 @@ public class CardListMasterTester {
         masterList1.reverse();
         SO.print("Reversed Set  : ");
         SO.println(masterList1);
+        if (testReverse())
+            SO.print("Success Reversed : Correct\n");
+        else
+            SO.print("Failed  Reversed :  InCorrect");
+    }
+
+    private boolean testReverse() {
+        for (int j = 0; j < masterList1.size() - 1; j++)
+            if (masterList1.get(j).compareTo(masterList1.get(j + 1)) < 0)
+                return false;
+        return true;
     }
 
     //****************************************************************
@@ -250,7 +261,6 @@ public class CardListMasterTester {
 
     public void stage101() {
         // STAGE 12
-        SO.println();
         SO.println("Stage 101");
         // Create a large list and Compare the Two
 
@@ -283,7 +293,6 @@ public class CardListMasterTester {
 
     public void stage102() {
         // STAGE 13
-        SO.println();
         SO.println("Stage 102");
         // Create a large list and Compare the Two
 
@@ -316,7 +325,6 @@ public class CardListMasterTester {
 
     public void stage103() {
         // STAGE 14
-        SO.println();
         SO.println("Stage 103");
         // Create a large list and Compare the Two
 
@@ -353,7 +361,6 @@ public class CardListMasterTester {
 
     public void stage104() {
         // STAGE 15
-        SO.println();
         SO.println("Stage 104");
         // Create a large list and Compare the Two
 
@@ -390,7 +397,6 @@ public class CardListMasterTester {
 
     public void stage105() {
         // STAGE 16
-        SO.println();
         SO.println("Stage 105");
         // Adding to the middle of a List
 
