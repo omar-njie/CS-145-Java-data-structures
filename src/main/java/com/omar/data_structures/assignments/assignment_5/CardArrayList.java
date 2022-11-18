@@ -155,9 +155,6 @@ public class CardArrayList implements CardList {
      * @throws IndexOutOfBoundsException if l {@code (l < 0 || l >= this.size) {}} is outside the current list.
      */
     public void add(int l, Card x) {
-        // check_capacity(size + 1);
-        // check_index(l);
-
         if (!(is_room())) expand();
         for (int i = this.size; i > l; i--)
             this.card_list_data[i] = this.card_list_data[i - 1];
