@@ -13,43 +13,66 @@ public class CardLinkedList implements CardList {
     private int size;
 
 
+    /**
+     * Creates a CardLinkedList object and sets the front to null and the size to 0.
+     */
     public CardLinkedList() {
         front = null;
         this.size = 0;
     }
 
-
-
-
+    /**
+     * Returns the current number of elements in the list.
+     * @return the {@code size} of the list
+     */
     public int size() {
         return this.size;
     }
 
-    public void add(Card c) {
+    /**
+     * This method should add a card to the end of the list in the first available spot.
+     *
+     * @param x the Card object to be added.
+     */
+    public void add(Card x) {
         if (front == null) {
-            front = new CardNode<Card>(c);
+            front = new CardNode<Card>(x);
         } else {
             CardNode<Card> current = front;
             while (current.next != null) {
                 current = current.next;
             }
-            current.next = new CardNode<Card>(c);
+            current.next = new CardNode<Card>(x);
         }
         size += 1;
     }
 
-    public void add(int l, Card c) {
+    /**
+     * Add a card to the indicated location
+     * sliding all other elements over one.
+     *
+     * @param l the desired index of the card to be added.
+     * @param x the Card object to be added.
+     * @throws IndexOutOfBoundsException {@code if (l >= 0 && l <= this.size) {}} is outside the current list.
+     */
+    public void add(int l, Card x) {
         check_index_pos(l);
         if (l == 0) {
-            front = new CardNode<Card>(c, front);
+            front = new CardNode<Card>(x, front);
         } else {
             CardNode<Card> current = nodeAt(l - 1);
-            current.next = new CardNode<Card>(c, current.next);
+            current.next = new CardNode<Card>(x, current.next);
         }
         size += 1;
     }
 
 
+    /**
+     * Remove the last element from the list.
+     *
+     * @return The card object removed from the list.
+     * @throws IndexOutOfBoundsException if the list is empty.
+     */
    public Card remove() {
        if (front == null)
            throw new IndexOutOfBoundsException("The list is empty");
@@ -67,6 +90,14 @@ public class CardLinkedList implements CardList {
    }
 
 
+    /**
+     * Remove the identified card from the list and return it.
+     *
+     * @param j the index of the card to be removed.
+     * @return The card object removed from the list.
+     * @throws IndexOutOfBoundsException {@code if (j >= 0 && j < this.size) {}}
+     *                                   is outside the current list.
+     */
     public Card remove(int j) {
         check_element_index(j);
         if (j == 0) {
@@ -82,11 +113,28 @@ public class CardLinkedList implements CardList {
         return temp.item;
     }
 
+
+    /**
+     * Return the i'th last element from the list.
+     *
+     * @param x The index of the desired card.
+     * @return The card object located in index x from the list.
+     * @throws IndexOutOfBoundsException {@code if (x >= 0 && x < this.size) {}}
+     *                                   is outside the current list.
+     * @see CardLinkedList#nodeAt(int)
+     */
     public Card get(int x) {
         check_element_index(x);
         return nodeAt(x).item;
     }
 
+
+    /**
+     * Returns the index of specified Card object
+     *
+     * @param x Card object
+     * @return {@code index} of Card otherwise -1 if not found
+     */
     public int indexOf(Card x) {
         CardNode<Card> current = front;
         for (int i = 0; i < this.size; i++) {
@@ -97,6 +145,10 @@ public class CardLinkedList implements CardList {
         return -1;
     }
 
+
+    /**
+     * Sort the items in the list from smallest to largest
+     */
     public void sort() {
         this.sort(this);
     }
