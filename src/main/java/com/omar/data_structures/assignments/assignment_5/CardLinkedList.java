@@ -4,8 +4,32 @@ import java.util.Random;
 import java.util.Stack;
 
 /**
+ * The CardLinkedList class the {@link CardList} interface.
+ * It implements this following methods:
+ * <ul>
+ *     <li>{@link CardList#toString()}</li>
+ *     <li>{@link CardList#size()}</li>
+ *     <li>{@link CardList#add(Card)}</li>
+ *     <li>{@link CardList#add(int, Card)}</
+ *     <li>{@link CardList#remove()}</li>
+ *     <li>{@link CardList#remove(int)}</li>
+ *     <li>{@link CardList#get(int)}</li>
+ *     <li>{@link CardList#indexOf(Card)}</l
+ *     <li>{@link CardList#sort()}</li>
+ *     <li>{@link CardList#shuffle()}</li>
+ *     <li>{@link CardList#clear()}</li>
+ *     <li>{@link CardList#reverse()}</li>
+ * </ul>
+ * The class has some additional helper methods such as {@link CardLinkedList#nodeAt(int)},
+ * {@link CardLinkedList#swap(int, int)}, {@link CardLinkedList#check_index_pos(int)} and
+ * {@link CardLinkedList#check_element_index(int)}.
+ * It also implements the merge sort algorithm; {@link CardLinkedList#sort()}, with
+ * this helper methods: {@link CardLinkedList#merge(CardLinkedList, CardLinkedList)} and
+ * {@link CardLinkedList#sort(CardLinkedList)} to sort the list from least to greatest.
+ *
  * @author Omar
- * @version 11/11/22
+ * @version 11.17.22
+ * @see StringBuilder
  */
 public class CardLinkedList implements CardList {
 
@@ -21,13 +45,16 @@ public class CardLinkedList implements CardList {
         this.size = 0;
     }
 
+
     /**
      * Returns the current number of elements in the list.
+     *
      * @return the {@code size} of the list
      */
     public int size() {
         return this.size;
     }
+
 
     /**
      * This method should add a card to the end of the list in the first available spot.
@@ -36,16 +63,17 @@ public class CardLinkedList implements CardList {
      */
     public void add(Card x) {
         if (front == null) {
-            front = new CardNode<Card>(x);
+            front = new CardNode<>(x);
         } else {
             CardNode<Card> current = front;
             while (current.next != null) {
                 current = current.next;
             }
-            current.next = new CardNode<Card>(x);
+            current.next = new CardNode<>(x);
         }
         size += 1;
     }
+
 
     /**
      * Add a card to the indicated location
@@ -58,10 +86,10 @@ public class CardLinkedList implements CardList {
     public void add(int l, Card x) {
         check_index_pos(l);
         if (l == 0) {
-            front = new CardNode<Card>(x, front);
+            front = new CardNode<>(x, front);
         } else {
             CardNode<Card> current = nodeAt(l - 1);
-            current.next = new CardNode<Card>(x, current.next);
+            current.next = new CardNode<>(x, current.next);
         }
         size += 1;
     }
@@ -73,21 +101,21 @@ public class CardLinkedList implements CardList {
      * @return The card object removed from the list.
      * @throws IndexOutOfBoundsException if the list is empty.
      */
-   public Card remove() {
-       if (front == null)
-           throw new IndexOutOfBoundsException("The list is empty");
-       CardNode<Card> current = front;
-       CardNode<Card> behind = front;
-       while (current.next != null) {
-           behind = current;
-           current = current.next;
-       }
-       Card c = current.item;
-       behind.next = null;
-       size -= 1;
-       return c;
+    public Card remove() {
+        if (front == null)
+            throw new IndexOutOfBoundsException("The list is empty");
+        CardNode<Card> current = front;
+        CardNode<Card> behind = front;
+        while (current.next != null) {
+            behind = current;
+            current = current.next;
+        }
+        Card c = current.item;
+        behind.next = null;
+        size -= 1;
+        return c;
 
-   }
+    }
 
 
     /**
@@ -138,8 +166,7 @@ public class CardLinkedList implements CardList {
     public int indexOf(Card x) {
         CardNode<Card> current = front;
         for (int i = 0; i < this.size; i++) {
-            if (current.item.equals(x))
-                return i;
+            if (current.item.equals(x)) return i;
             current = current.next;
         }
         return -1;
@@ -153,11 +180,12 @@ public class CardLinkedList implements CardList {
         this.sort(this);
     }
 
-    public void clear() {
-        front = null;
-        this.size = 0;
-    }
 
+    /**
+     * Shuffle the items in the list.
+     *
+     * @see CardLinkedList#swap(int, int)
+     */
     public void shuffle() {
         Random rand = new Random();
         for (int i = 0; i < size * 5; i++) {
@@ -167,13 +195,21 @@ public class CardLinkedList implements CardList {
         }
     }
 
+    /**
+     * Empty the list of all items.
+     */
+    public void clear() {
+        front = null;
+        this.size = 0;
+    }
 
+    /**
+     * Reverse the sorted list from largest to smallest.
+     */
     public void reverse() {
-        Stack<Card> stack = new Stack<Card>();
-        while (this.size > 0)
-            stack.push(this.remove(0));
-        while (!(stack.isEmpty()))
-            this.add(stack.pop());
+        Stack<Card> stack = new Stack<>();
+        while (this.size > 0) stack.push(this.remove(0));
+        while (!(stack.isEmpty())) this.add(stack.pop());
     }
 
 
@@ -186,42 +222,40 @@ public class CardLinkedList implements CardList {
         CardNode<Card> current = front;
         while (current != null) {
             sb.append(current.item.toString());
-            if (current.next != null)
-                sb.append(",");
+            if (current.next != null) sb.append(",");
             current = current.next;
         }
         sb.append(" | ").append(this.size()).append("]");
         return sb.toString();
     }
 
+
+    // -----------------------# Helper Methods #-----------------------//
+
     private void sort(CardLinkedList x) {
-        if (x.size <= 1)
-            return;
+        if (x.size <= 1) return;
         CardLinkedList left = new CardLinkedList();
         CardLinkedList right = new CardLinkedList();
         int half = x.size / 2;
         for (int i = 0; i < half; i++)
             left.add(x.remove(0));
-        while (x.size > 0)
-            right.add(x.remove(0));
+        while (x.size > 0) right.add(x.remove(0));
         left.sort();
         right.sort();
         merge(left, right);
     }
 
+
     private void merge(CardLinkedList start, CardLinkedList end) {
         while (start.size() + end.size() > 0) {
-            if (start.size() == 0)
-                this.add(end.remove(0));
-            else if (end.size() == 0)
+            if (start.size() == 0) this.add(end.remove(0));
+            else if (end.size() == 0) this.add(start.remove(0));
+            else if (start.front.item.compareTo(end.front.item) < 0)
                 this.add(start.remove(0));
-            else if (start.front.item.compareTo(
-                    end.front.item) < 0)
-                this.add(start.remove(0));
-            else
-                this.add(end.remove(0));
+            else this.add(end.remove(0));
         }
     }
+
 
     private void swap(int a, int b) {
         CardNode<Card> current = front;
@@ -250,6 +284,7 @@ public class CardLinkedList implements CardList {
         return current;
     }
 
+
     private String bound_message(int index) {
         return "Index: " + index + ", Size: " + this.size;
     }
@@ -260,23 +295,27 @@ public class CardLinkedList implements CardList {
             throw new IndexOutOfBoundsException(bound_message(index));
     }
 
+
     private boolean is_position(int index) {
         return index >= 0 && index <= this.size;
     }
 
+
     private boolean is_element_index(int index) {
         return index >= 0 && index < this.size;
     }
+
 
     private void check_element_index(int index) {
         if (!(is_element_index(index)))
             throw new IndexOutOfBoundsException(bound_message(index));
     }
 
+    // -----------------------# End Of Helper Methods # -----------------------//
 
     private static class CardNode<E> {
-       E item;
-       CardNode<E> next;
+        E item;
+        CardNode<E> next;
 
         CardNode(E item) {
             this.item = item;
