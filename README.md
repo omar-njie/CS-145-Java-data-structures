@@ -18,8 +18,8 @@ src
 │           │   ├── short_assignments
 │           ├── learn
 │           │   ├── implement_collections
-│           │      ├── array_list
-│           │      ├── linked_list
+│           │       ├── array_list
+│           │       ├── linked_list
 │           ├── resources
 │           │   ├── assignment pdfs
 │           │   ├── book
