@@ -18,7 +18,7 @@ src
 │   └── java
 │       └── com.omar
 │           ├── algorithms.learn
-│           │   ├── search_alogorithms
+│           │   ├── search_algorithms
 │           ├── data_structures.assignments
 │           │   ├── assignment_1
 │           │   ├── assignment_2
