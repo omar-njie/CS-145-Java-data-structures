@@ -39,6 +39,7 @@ src
 ```
 
 ## Warning
-
 * <u>**This is only for educational purposes**</u>. Please do not copy and paste the code, if you did at least refactor it.
 * It's not my responsibility if something happens, so please **be careful on how you use this repository**.
+## Contributing
+* If you find any bugs or have any suggestions or want to add something, please open an issue or a pull request.
