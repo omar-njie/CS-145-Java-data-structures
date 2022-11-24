@@ -1,8 +1,15 @@
 # CS-145: Java Data Structures
 
 ## Overview
+
+* Clone the repo or paste this in your terminal:
+
+  ```
+  git clone https://github.com/omar-njie/CS-145-Java-data-structures.git
+  ```
 * This git repo is a collection my assignments solutions from CS-145 class. The repo contains all the pdf
-files of the assignments and the source code of the solutions. The source code is organized in the following way:
+  files of the assignments and the source code of the solutions. The source code is organized in the following way:
+
 ```
 src
 ├── main
@@ -20,6 +27,10 @@ src
 │           │   ├── implement_collections
 │           │       ├── array_list
 │           │       ├── linked_list
+│           │       ├── stacks_and_queues
+│           │       ├── trees
+│           │       ├── hash_tables
+│           │       ├── some other stuff
 │           ├── resources
 │           │   ├── assignment pdfs
 │           │   ├── book
