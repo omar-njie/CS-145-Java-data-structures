@@ -7,7 +7,7 @@
   ```
   git clone https://github.com/omar-njie/CS-145-Java-data-structures.git
   ```
-* This git repo is a collection my assignments solutions from CS-145 class. The repo contains all the pdf
+* This git repo is a collection of the assignments solutions from CS-145 class. The repo contains all the pdf
   files of the assignments and the source code of the solutions. The source code is organized in the following way.
 
 ### Folder Structure
@@ -17,6 +17,8 @@ src
 ├── main
 │   └── java
 │       └── com.omar
+│           ├── algorithms.learn
+│           │   ├── search_alogorithms
 │           ├── data_structures.assignments
 │           │   ├── assignment_1
 │           │   ├── assignment_2
