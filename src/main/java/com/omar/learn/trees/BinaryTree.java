@@ -30,9 +30,18 @@ public class BinaryTree {
             // 1. Pre-order Traversal
             // 2. In-order Traversal
             // 3. Post-order Traversal
-            //              | process root |
-            //  ------------
-            // |
+            //    7
+            //   / \
+            //  6   5
+            // Pre-order Traversal:
+                // visits the root, then the left subtree, then the right subtree.
+                // yielding the sequence [7, 5,6]
+            // In-order Traversal:
+                // visits the left subtree, then the root, then the right subtree.
+                // yielding the sequence [6, 7, 5]
+            // Post-order Traversal:
+                // visits the left subtree, then the right subtree, then the root.
+                // yielding the sequence [6, 5, 7]
     }
 
 }
