@@ -121,6 +121,16 @@ public class LinkedIntList {
         return "Size: " + size();
     }
 
+    public boolean hasOddEven() {
+        ListNodeEx current = front;
+        while (current != null) {
+            if (current.data % 2 == 0)
+                return true;
+            current = current.next;
+        }
+        return false;
+    }
+
     private static class Node<T> {
         public T data;
         public Node<T> next;
