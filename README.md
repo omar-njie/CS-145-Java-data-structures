@@ -29,15 +29,15 @@ src
 │           │   ├── short_assignments
 │           ├── learn
 │           │   ├── implement_collections
-│           │       ├── array_list
-│           │       ├── linked_list
-│           │       ├── stacks_and_queues
-│           │       ├── trees
-│           │           ├── binary_tree
-│           │               ├── common_tree_operations
-│           │           ├── binary_search_tree
-│           │       ├── hash_tables
-│           │       ├── some other stuff
+│           │   │   ├── array_list
+│           │   │   ├── linked_list
+│           │   │   ├── stacks_and_queues
+│           │   │   ├── trees
+│           │   │   │   ├── binary_tree
+│           │   │   │   │   ├── common_tree_operations
+│           │   │   │   ├── binary_search_tree
+│           │   │   ├── hash_tables
+│           │   │   ├── some other stuff
 │           ├── resources
 │           │   ├── assignment pdfs
 │           │   ├── book
