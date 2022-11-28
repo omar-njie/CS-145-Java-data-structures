@@ -1,4 +1,4 @@
-package com.omar.learn.trees;
+package com.omar.learn.trees.binary_tree;
 
 public class IntTree {
 

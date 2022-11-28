@@ -1,6 +1,6 @@
-package com.omar.learn.trees.common_tree_operations;
+package com.omar.learn.trees.binary_tree.common_tree_operations;
 
-import com.omar.learn.trees.IntTreeNode;
+import com.omar.learn.trees.binary_tree.IntTreeNode;
 
 /**
  * @author Omar

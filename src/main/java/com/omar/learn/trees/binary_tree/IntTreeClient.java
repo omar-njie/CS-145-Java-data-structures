@@ -1,4 +1,6 @@
-package com.omar.learn.trees;
+package com.omar.learn.trees.binary_tree;
+
+import com.omar.learn.trees.binary_tree.IntTree;
 
 /**
  * @author Omar
