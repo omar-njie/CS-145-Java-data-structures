@@ -33,7 +33,8 @@ src
 │           │       ├── linked_list
 │           │       ├── stacks_and_queues
 │           │       ├── trees
-│           │           ├── common_tree_operations
+│           │           ├── binary_tree
+│           │               ├── common_tree_operations
 │           │           ├── binary_search_tree
 │           │       ├── hash_tables
 │           │       ├── some other stuff
