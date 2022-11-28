@@ -2,7 +2,7 @@ package com.omar.learn.trees;
 
 public class IntTree {
 
-    private IntTreeNode overallRoot;
+    private final IntTreeNode overallRoot;
 
 
         //     1 (root)
