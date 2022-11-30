@@ -86,7 +86,7 @@ public class IntTree {
     private void printInorder(IntTreeNode root) {
         if (root != null) {
             printInorder(root.left);
-            System.out.print(" " + root.data);
+            System.out.print(root.data + " ");
             printInorder(root.right);
         }
     }
@@ -121,7 +121,7 @@ public class IntTree {
         if (root != null) {
             printSideways(root.right, level + 1);
             for (int i = 0; i < level; i++) {
-                System.out.print("  ");
+                System.out.print("    ");
             }
             System.out.println(root.data);
             printSideways(root.left, level + 1);
