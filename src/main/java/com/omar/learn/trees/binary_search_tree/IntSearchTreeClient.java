@@ -23,5 +23,8 @@ public class IntSearchTreeClient {
         numbers.printSideways();
         System.out.println("Sorted list:");
         numbers.print();
+        System.out.println();
+        System.out.println(numbers.countLeftNodes());
+        System.out.println(numbers.contains(5));
     }
 }
