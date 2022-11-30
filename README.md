@@ -33,9 +33,10 @@ src
 │           │   │   ├── linked_list
 │           │   │   ├── stacks_and_queues
 │           │   │   ├── trees
+│           │   │   │   ├── binary_search_tree
+│           │   │   │   │   ├── generic_format
 │           │   │   │   ├── binary_tree
 │           │   │   │   │   ├── common_tree_operations
-│           │   │   │   ├── binary_search_tree
 │           │   │   ├── hash_tables
 │           │   │   ├── some other stuff
 │           ├── resources
