@@ -4,12 +4,12 @@ package com.omar.data_structures.assignments.assignment_6;
  * @author Omar
  * @version 11.27.22
  */
-public class Node<E extends Comparable<E>> {
+public class Node implements Comparable<Node> {
 
 
-    E data;
-    Node<E> left;
-    Node<E> right;
+    public int data;
+    public Node left;
+    public Node right;
     Integer frequency;
     Character ch;
 
@@ -23,11 +23,11 @@ public class Node<E extends Comparable<E>> {
         this.ch = null;
     }
 
-    Node(E data) {
+    Node(int data) {
         this(data, null, null);
     }
 
-    Node(E data, Node<E> left, Node<E> right) {
+    Node(int data, Node left, Node right) {
         this.data = data;
         this.left = left;
         this.right = right;
@@ -38,7 +38,7 @@ public class Node<E extends Comparable<E>> {
         return "Frequency: " + frequency + " Value: " + ch;
     }
 
-    public int compareTo(Node<E> o) {
+    public int compareTo(Node o) {
         return this.frequency - o.frequency;
     }
 
