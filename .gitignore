@@ -37,3 +37,9 @@ build/
 ### Mac OS ###
 .DS_Store
 /.idea/
+
+### Customs ###
+.code
+.huff
+dictionary.txt
+.txt
