@@ -74,6 +74,7 @@ public class SearchTree<E extends Comparable<E>> {
             this(data, null, null);
         }
 
+
         Node(E data, Node<E> left, Node<E> right) {
             this.data = data;
             this.left = left;
