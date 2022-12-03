@@ -41,5 +41,9 @@ build/
 ### Customs ###
 .code
 .huff
-dictionary.txt
+/dictionary.txt
 .txt
+/hamlet.code
+/hamlet.huff
+/hamlet.txt
+*.txt
