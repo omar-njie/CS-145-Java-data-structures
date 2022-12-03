@@ -13,7 +13,7 @@ import java.util.Scanner;
  * assuming that they exist if not the program will exit.
  *
  * @author Omar
- * @version 11.27.22
+ * @version 12.2.22
  * @see TextToCode
  * @see StringBuilder
  */
@@ -31,8 +31,8 @@ public class CodeToText implements Runnable {
      * <b>Creates a CodeToText object, sets the .code file, .huff file,
      * input stream for reading files and scanner for user input.</b>
      *
-     * @param file_name the name of the file to be read
-     * @param fis       the file input stream
+     * @param file_name    the name of the file to be read
+     * @param fis          the file input stream
      * @param input        the scanner for user input
      */
     public CodeToText(String file_name, FileInputStream fis, Scanner input) {
@@ -53,9 +53,9 @@ public class CodeToText implements Runnable {
         System.out.print("Enter file name (without period): ");
 
         String file_name = in.nextLine();
-        while (file_name.contains(".")) {
-            System.out.print("Enter file name (without period): ");
-            file_name = in.nextLine();
+        if (file_name.contains(".")) {
+            System.out.println("File name is invalid please try again.");
+            main(args);
         }
 
         CodeToText ctt = new CodeToText(file_name, fis, input);
