@@ -32,12 +32,12 @@ src
 │           │   │   ├── array_list
 │           │   │   ├── linked_list
 │           │   │   ├── stacks_and_queues
-│           │   │   ├── trees
-│           │   │   │   ├── binary_search_tree
-│           │   │   │   │   ├── generic_format
-│           │   │   │   ├── binary_tree
-│           │   │   │   │   ├── common_tree_operations
-│           │   │   ├── hash_tables
+│           │   ├── trees
+│           │   │   ├── binary_tree
+│           │   │   │   ├── common_tree_operations
+│           │   │   ├── binary_search_tree
+│           │   │   │   ├── generic_format
+│           │   │   ├── hashing
 │           │   │   ├── some other stuff
 │           ├── resources
 │           │   ├── assignment pdfs
