@@ -45,5 +45,6 @@ build/
 .txt
 /hamlet.code
 /hamlet.huff
-/hamlet.txt
 *.txt
+hamlet.txt
+
