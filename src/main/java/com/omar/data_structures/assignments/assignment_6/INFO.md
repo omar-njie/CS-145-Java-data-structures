@@ -16,7 +16,7 @@ if it worked you should see two newlly created files: hamlet.code and hamlet.huf
 
 For CodeToText.java
 Enter file name (without period): hamlet
-if it worked you should see the decoded test aka content of hamlet.txt
+if it worked you should see the decoded text aka content of hamlet.txt
 ```
 
 ## Note
