@@ -1,4 +1,4 @@
-21# Information for Assignment 6
+# Information for Assignment 6
 
 ## How it works
 
