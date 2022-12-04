@@ -1,11 +1,11 @@
-# Information for Assignment 6
+21# Information for Assignment 6
 
 ## How it works
 
 * For example if you run `TextToCode.java` it will ask the user for file name
   and that file name is already defined in `TextToCode.java` class named hamlet.txt.
-* When you run the program just type `hamlet.txt` and it will convert the text file to `.code` file and `.hull` file
-* Likewise when you run `CodeToText.java` you should type `hamlet` and it will decode the `.code` file and `.hull` file.
+* When you run the program just type `hamlet.txt` and it will convert the text file to `.code` file and `.huff` file
+* Likewise when you run `CodeToText.java` you should type `hamlet` and it will decode the `.code` file and `.huff` file.
 
 ## Example
 
@@ -21,7 +21,7 @@ if it worked you should see the decoded test aka content of hamlet.txt
 
 ## Note
 
-* if you want another file to be encoded and decoded change this line in `TextToCode.java`.
+* if you want another file to be encoded and decoded change this lines in `TextToCode.java`.
 * You don't have to worry about `CodeToText.java` because it depends on `.code` and `.huff` files when they were created from `TextToCode.java`
 
 ```java
