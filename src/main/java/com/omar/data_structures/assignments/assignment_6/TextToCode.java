@@ -23,9 +23,9 @@ public class TextToCode implements Runnable {
 
     private final String CODE_FILE_NAME;
     private final String HUFF_FILE_NAME;
-    private List<Character> char_list = new ArrayList<>();
-    private Map<Character, Integer> map = new HashMap<>();
-    private PriorityQueue<Node<Character>> pq = new PriorityQueue<>();
+    private final List<Character> char_list;
+    private final Map<Character, Integer> map;
+    private PriorityQueue<Node<Character>> pq;
     private Node<Character> root;
     private PrintWriter code_file;
     private PrintWriter huff_file;
