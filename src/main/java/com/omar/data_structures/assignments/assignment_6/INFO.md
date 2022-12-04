@@ -5,7 +5,7 @@
 * For example if you run `TextToCode.java` it will ask the user for file name
   and that file name is already defined in `TextToCode.java` class named hamlet.txt.
 * When you run the program just type `hamlet.txt` and it will convert the text file to `.code` file and `.huff` file
-* Likewise when you run `CodeToText.java` you should type `hamlet` and it will decode the `.code` file and `.huff` file.
+* Likewise when you run `CodeToText.java` you should type `hamlet` and it will read the `.code` and `.huff` files then decode the contents.
 
 ## Example
 
@@ -21,8 +21,8 @@ if it worked you should see the decoded test aka content of hamlet.txt
 
 ## Note
 
-* if you want another file to be encoded and decoded change this lines in `TextToCode.java`.
-* You don't have to worry about `CodeToText.java` because it depends on `.code` and `.huff` files when they were created from `TextToCode.java`
+* if you want another file to be encoded and decoded change the file name in `TextToCode.java`.
+* No changes for `CodeToText.java` is needed because it depends on `.code` and `.huff` files when they were created from `TextToCode.java`.
 
 ```java
 public class TextToCode {
@@ -36,8 +36,8 @@ public class TextToCode {
     System.out.print("Enter file name (Should end with .txt): ");
     String file_name = in.nextLine();
 
-    if (!(file_name.contains("HAMLET")) // change this line to the file you want to encode
-            && !(file_name.contains("hamlet")) // change this line to the file you want to encode
+    if (!(file_name.contains("HAMLET")) // add the file name you want to encode
+            && !(file_name.contains("hamlet")) // add the file name you want to encode
             || !(file_name.contains(".txt"))) {
       System.out.println("File name is invalid please try again.");
       user_input();
@@ -50,7 +50,7 @@ public class TextToCode {
    */
   public void read_file() {
     try {
-        // change this line to the file you want to encode
+      // add the file name you want to encode
       FileInputStream fis = new FileInputStream("hamlet.txt");
       while (fis.available() > 0) {
         char c = (char) fis.read();
@@ -64,7 +64,7 @@ public class TextToCode {
   }
 
   public static void main(String[] args) {
-      // change this line to the file you want to encode
+      // add the file name you want to encode
     TextToCode ttc = new TextToCode("hamlet.txt");
     ttc.run();
   }
