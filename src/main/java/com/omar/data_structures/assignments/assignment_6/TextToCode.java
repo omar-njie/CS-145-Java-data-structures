@@ -25,7 +25,7 @@ public class TextToCode implements Runnable {
     private final String HUFF_FILE_NAME;
     private final List<Character> char_list;
     private final Map<Character, Integer> map;
-    private PriorityQueue<Node<Character>> pq;
+    private final PriorityQueue<Node<Character>> pq;
     private Node<Character> root;
     private PrintWriter code_file;
     private PrintWriter huff_file;
@@ -162,8 +162,7 @@ public class TextToCode implements Runnable {
 
 
     public static void main(String[] args) {
-        TextToCode ttc = new TextToCode("hamlet.txt");
-        ttc.run();
+        new TextToCode("hamlet.txt").run();
     }
 
 

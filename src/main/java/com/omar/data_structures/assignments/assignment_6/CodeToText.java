@@ -58,8 +58,7 @@ public class CodeToText implements Runnable {
             main(args);
         }
 
-        CodeToText ctt = new CodeToText(file_name, fis, input);
-        ctt.run();
+        new CodeToText(file_name, fis, input).run();
     }
 
 
