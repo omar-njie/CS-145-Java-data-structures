@@ -14,4 +14,8 @@ public class HashFunctions {
         return Math.abs(value) % elementData.length;
     }*/
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
