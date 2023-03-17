@@ -51,4 +51,4 @@ src
 
 ## Contributing
 
-* If you find any bugs or have any suggestions or want to add something, please open an issue or a pull request.
+* If you find any bugs or have any suggestions or want to add something, please open an issue or submit a pull request.
