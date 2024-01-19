@@ -139,9 +139,8 @@ public class TextToCode implements Runnable {
 
     private static void huffManCode(Node<Character> root, String s,
                                     Map<Character, String> map_2) {
-        if (root == null) {
+        if (root == null)
             return;
-        }
         if (root.isLeaf()) {
             map_2.put(root.ch, s);
             return;

@@ -89,7 +89,7 @@ public class CodeToText implements Runnable {
      * @see Scanner
      * @see StringBuilder
      */
-    public void read_hull_file() {
+    public void read_huff_file() {
         try {
             fis = new FileInputStream(huff_file);
             Scanner sc = new Scanner(fis);
@@ -125,7 +125,7 @@ public class CodeToText implements Runnable {
     @Override
     public void run() {
         read_code_file();
-        read_hull_file();
+        read_huff_file();
         decode();
     }
 }
